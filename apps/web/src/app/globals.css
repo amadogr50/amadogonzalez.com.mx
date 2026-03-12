@@ -1,0 +1,77 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-cream: #FAF8F5;
+  --color-cream-mid: #F0EDE8;
+  --color-ink: #1A1A1A;
+  --color-sage: #A3B5A6;
+  --color-sage-dark: #6B6560;
+  --color-sage-wash: rgba(163, 181, 166, 0.15);
+  --color-stone: #6B6560;
+  --color-warm-gray-light: #9B958E;
+  --color-hairline: #D6D0C8;
+  --color-card-bg: #FFFFFF;
+
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-ink font-sans text-[15px] leading-relaxed antialiased;
+  }
+}
+
+@layer components {
+  .btn-ink {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-ink);
+    padding: 0.75rem 1.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-ink::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-sage);
+    transform: translateY(-101%);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+    z-index: 0;
+  }
+
+  .btn-ink:hover::before {
+    transform: translateY(0);
+  }
+
+  .btn-ink-label {
+    position: relative;
+    z-index: 1;
+    color: var(--color-cream);
+    display: block;
+  }
+
+  .btn-ink-label-hover {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ink);
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .btn-ink:hover .btn-ink-label-hover {
+    clip-path: inset(0% 0 0 0);
+  }
+}

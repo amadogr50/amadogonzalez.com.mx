@@ -1,0 +1,15 @@
+{
+  "name": "@amado/prettier-config",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "exports": "./prettier.config.mjs",
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=10"
+  },
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.7.2"
+  }
+}

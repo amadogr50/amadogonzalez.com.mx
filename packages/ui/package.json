@@ -1,0 +1,25 @@
+{
+  "name": "@amado/ui",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tailwind": "./tailwind.config.ts",
+    "./src/*": "./src/*"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.3.0"
+  },
+  "devDependencies": {
+    "@amado/eslint-config": "workspace:*",
+    "@amado/prettier-config": "workspace:*",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=10"
+  },
+  "packageManager": "pnpm@10.14.0"
+}

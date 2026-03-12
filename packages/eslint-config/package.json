@@ -1,0 +1,32 @@
+{
+  "name": "@amado/eslint-config",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./base": "./base.js",
+    "./node": "./node.js",
+    "./next": "./next.js"
+  },
+  "peerDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-perfectionist": "^5.6.0",
+    "eslint-plugin-turbo": "^2.8.11",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  },
+  "peerDependenciesOptional": {
+    "@tanstack/eslint-plugin-query": true,
+    "eslint-config-expo": true,
+    "eslint-plugin-react": true,
+    "eslint-plugin-react-hooks": true
+  },
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=10"
+  },
+  "packageManager": "pnpm@10.14.0"
+}
