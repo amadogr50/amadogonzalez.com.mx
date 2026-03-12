@@ -108,6 +108,9 @@ importers:
       tailwind-merge:
         specifier: ^3.3.0
         version: 3.5.0
+      tailwindcss:
+        specifier: ^4.1.10
+        version: 4.2.1
     devDependencies:
       '@amado/eslint-config':
         specifier: workspace:*

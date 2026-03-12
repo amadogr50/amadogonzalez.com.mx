@@ -90,8 +90,7 @@ cp .env.example .env
 Then update `.env` with your configuration:
 
 ```
-DATABASE_URL=postgresql://user:password@localhost:5432/amadogonzalez
-NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NODE_ENV=development
 ```
 
 ### 3. Run Development Servers

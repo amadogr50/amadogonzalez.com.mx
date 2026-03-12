@@ -12,6 +12,9 @@
     "clsx": "^2.1.1",
     "tailwind-merge": "^3.3.0"
   },
+  "peerDependencies": {
+    "tailwindcss": "^4.1.10"
+  },
   "devDependencies": {
     "@amado/eslint-config": "workspace:*",
     "@amado/prettier-config": "workspace:*",
