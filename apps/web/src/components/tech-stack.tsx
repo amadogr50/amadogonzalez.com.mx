@@ -1,17 +1,19 @@
+import { Container } from '@/components/container'
+
 const categories = [
   {
     id: 'mobile',
     label: 'Core Expertise',
     title: 'Mobile Development',
     description:
-      'Desarrollo de aplicaciones móviles escalables, performantes y mantenibles, utilizadas en producción por miles de usuarios.',
+      'Development of scalable, high-performance, and maintainable mobile applications used in production by thousands of users.',
     groups: [
       {
-        name: 'Tecnologías',
+        name: 'Technologies',
         items: ['React Native', 'Expo', 'TypeScript', 'Kotlin', 'iOS / Android'],
       },
       {
-        name: 'Performance & Optimización',
+        name: 'Performance & Optimization',
         items: [
           'FlashList',
           'Expo Image',
@@ -27,14 +29,14 @@ const categories = [
     label: null,
     title: 'Frontend & Web',
     description:
-      'Construcción de aplicaciones web modernas y plataformas internas orientadas a producto.',
+      'Building modern web applications and internal platforms with a strong product-focused approach.',
     groups: [
       {
-        name: 'Tecnologías',
+        name: 'Technologies',
         items: ['React', 'Next.js', 'JavaScript / TypeScript', 'HTML / CSS'],
       },
       {
-        name: 'Capacidades',
+        name: 'Capabilities',
         items: [
           'Server-side rendering',
           'Component-driven architecture',
@@ -48,14 +50,14 @@ const categories = [
     label: null,
     title: 'State Management & Data Flow',
     description:
-      'Arquitecturas de estado enfocadas en simplicidad, rendimiento y mantenibilidad.',
+      'State architectures focused on simplicity, performance, and maintainability.',
     groups: [
       {
-        name: 'Herramientas',
+        name: 'Tools',
         items: ['React Context API', 'Zustand', 'React Query', 'REST APIs'],
       },
       {
-        name: 'Experiencia adicional',
+        name: 'Additional Experience',
         items: ['Redux'],
       },
     ],
@@ -65,14 +67,14 @@ const categories = [
     label: null,
     title: 'Backend & APIs',
     description:
-      'Construcción de servicios backend ligeros y eficientes dentro del ecosistema JavaScript.',
+      'Building lightweight and efficient backend services within the JavaScript ecosystem.',
     groups: [
       {
-        name: 'Tecnologías',
+        name: 'Technologies',
         items: ['Node.js', 'Express', 'Fastify'],
       },
       {
-        name: 'Infraestructura de datos',
+        name: 'Data Infrastructure',
         items: ['Redis', 'BullMQ'],
       },
     ],
@@ -82,18 +84,18 @@ const categories = [
     label: null,
     title: 'DevOps & Deployments',
     description:
-      'Experiencia gestionando el ciclo completo de desarrollo y despliegue, desde desarrollo hasta producción.',
+      'Experience managing the full development and deployment lifecycle, from development to production.',
     groups: [
       {
-        name: 'CI/CD y automatización',
-        items: ['Jenkins', 'Fastlane', 'EAS', 'Pipelines personalizados'],
+        name: 'CI/CD & Automation',
+        items: ['Jenkins', 'Fastlane', 'EAS', 'Custom pipelines'],
       },
       {
-        name: 'Infraestructura',
+        name: 'Infrastructure',
         items: ['Docker', 'Firebase', 'Railway', 'Azure', 'Heroku', 'VPS'],
       },
       {
-        name: 'Distribución móvil',
+        name: 'Mobile Distribution',
         items: ['App Store', 'Google Play Store'],
       },
     ],
@@ -103,10 +105,10 @@ const categories = [
     label: null,
     title: 'Observability & Analytics',
     description:
-      'Implementación de herramientas para monitorear estabilidad, errores y uso del producto.',
+      'Implementation of tools to monitor application stability, errors, and product usage.',
     groups: [
       {
-        name: 'Herramientas',
+        name: 'Tools',
         items: ['Sentry', 'Plausible Analytics', 'Google Analytics'],
       },
     ],
@@ -116,15 +118,15 @@ const categories = [
     label: null,
     title: 'Systems Integration',
     description:
-      'Conectando tecnología con operaciones reales de negocio mediante integraciones y automatización de procesos.',
+      'Connecting technology with real business operations through integrations and process automation.',
     groups: [
       {
-        name: 'Experiencia con',
+        name: 'Experience With',
         items: [
-          'Integraciones ERP',
-          'Automatización operativa',
-          'Sistemas SMS',
-          'Integraciones entre plataformas',
+          'ERP integrations',
+          'Operational automation',
+          'SMS systems',
+          'Cross-platform integrations',
         ],
       },
     ],
@@ -134,27 +136,25 @@ const categories = [
     label: null,
     title: 'AI-Assisted Development',
     description:
-      'Integro herramientas de inteligencia artificial en mi flujo de desarrollo para acelerar análisis técnico, iteración y resolución de problemas, manteniendo control arquitectónico y revisión humana.',
+      'I integrate artificial intelligence tools into my development workflow to accelerate technical analysis, iteration, and problem-solving, while maintaining architectural control and human review.',
     groups: [
       {
-        name: 'Herramientas',
+        name: 'Tools',
         items: ['Claude', 'ChatGPT', 'Cursor'],
       },
       {
-        name: 'Aplicaciones',
+        name: 'Applications',
         items: [
-          'Arquitecturas y patrones',
-          'Debugging complejo',
-          'Refactors grandes',
-          'Documentación técnica',
-          'Prototipos rápidos',
+          'Architectures and patterns',
+          'Complex debugging',
+          'Large-scale refactors',
+          'Technical documentation',
+          'Rapid prototyping',
         ],
       },
     ],
   },
 ]
-
-import { Container } from '@/components/container'
 
 export function TechStack() {
   return (
@@ -170,15 +170,16 @@ export function TechStack() {
 
       <div className="mt-8 max-w-[65ch] space-y-4 text-base leading-[1.85] text-stone">
         <p>
-          Mi enfoque técnico va más allá del desarrollo de interfaces. A lo largo de mi carrera he
-          diseñado y construido aplicaciones móviles, plataformas web y sistemas completos en
-          producción, conectando clientes móviles, servicios backend, infraestructura cloud y
-          herramientas de negocio.
+          My technical focus goes beyond interface development. Throughout my career I
+          have designed and built mobile applications, web platforms, and full
+          production systems, connecting mobile clients, backend services, cloud
+          infrastructure, and business tools.
         </p>
+
         <p>
-          Aunque mi especialidad es el desarrollo móvil con React Native, también trabajo en
-          arquitectura de sistemas, backend, DevOps e integraciones, construyendo soluciones
-          completas desde la idea hasta su operación en producción.
+          While my main specialization is mobile development with React Native, I also
+          work on system architecture, backend, DevOps, and integrations—building
+          complete solutions from initial idea to production operation.
         </p>
       </div>
 

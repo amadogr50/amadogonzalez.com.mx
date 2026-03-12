@@ -31,12 +31,10 @@ export function Contact() {
         <div className="mx-auto mt-8 h-px w-10 bg-sage/40" />
 
         <p className="mx-auto mt-8 max-w-[480px] text-[15px] leading-relaxed text-warm-gray-light">
-          I&apos;m currently available for contract work and open to senior
-          engineering roles.
+          I’m particularly interested in thoughtful conversations about building meaningful technology.
         </p>
         <p className="mx-auto mt-3 max-w-[480px] text-[15px] leading-relaxed text-warm-gray-light">
-          If you&apos;re building a product that needs strong mobile engineering
-          or thoughtful systems design — I&apos;d love to hear about it.
+          If you’re exploring ambitious ideas in AI, product, or the future of work, I’d enjoy connecting and exchanging perspectives. Sometimes the most interesting things start with a simple conversation.
         </p>
 
         <nav aria-label="Contact links">
