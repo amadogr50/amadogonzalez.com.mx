@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 const links = [
-  { href: '#work', label: 'Selected Work' },
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Work Experience' },
-  { href: '#stack', label: 'Tech Stack' },
-  { href: '#blog', label: 'Writing' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#work', label: 'Selected Work' },
+  { href: '/about', label: 'About' },
+  { href: '/#experience', label: 'Work Experience' },
+  { href: '/#stack', label: 'Tech Stack' },
+  { href: '/#blog', label: 'Writing' },
+  { href: '/#contact', label: 'Contact' },
 ]
 
 const NAV_HEIGHT = 64 // px — matches h-16
@@ -98,7 +98,7 @@ export function Nav() {
           className="flex items-center justify-between bg-cream px-6 md:px-12"
           style={{ height: NAV_HEIGHT }}
         >
-          <Link href="/" className="font-serif text-xl font-medium text-ink">
+          <Link onClick={handleClose} href="/" className="font-serif text-xl font-medium text-ink">
             Amado González
           </Link>
 
@@ -186,14 +186,14 @@ export function Nav() {
             {/* Bottom section: Language toggle & Social icons */}
             <div className="flex items-center justify-between">
               {/* Language toggle — bottom left */}
-              <button
+              {/* <button
                 tabIndex={menuOpen ? 0 : -1}
                 className="font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-ink"
               >
                 <span className="border-b border-ink pb-px">EN</span>
                 <span className="mx-1.5 text-stone">/</span>
                 <span className="text-stone">ES</span>
-              </button>
+              </button> */}
 
               {/* Social icons — bottom right */}
               <div className="flex items-center gap-4">

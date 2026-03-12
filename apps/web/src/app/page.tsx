@@ -1,5 +1,4 @@
 import { Hero } from '@/components/hero'
-import { About } from '@/components/about'
 import { WorkExperience } from '@/components/work-experience'
 import { SelectedWork } from '@/components/selected-work'
 import { TechStack } from '@/components/tech-stack'
@@ -11,7 +10,6 @@ export default function Home() {
     <>
       <Hero />
       <SelectedWork />
-      <About />
       <WorkExperience />
       <TechStack />
       <WritingPreview />
