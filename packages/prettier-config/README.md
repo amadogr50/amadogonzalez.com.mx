@@ -1,13 +1,13 @@
-# @bearbull/prettier-config
+# @amado/prettier-config
 
-Shared Prettier configuration for the BearBull workspace.
+Shared Prettier configuration for the workspace.
 
 ## Usage
 
 Install as a dev dependency and reference it in your `.prettierrc.mjs`:
 
 ```javascript
-import config from '@bearbull/prettier-config';
+import config from '@amado/prettier-config';
 
 export default config;
 ```
@@ -16,6 +16,6 @@ Or reference it directly in `package.json`:
 
 ```json
 {
-  "prettier": "@bearbull/prettier-config"
+  "prettier": "@amado/prettier-config"
 }
 ```

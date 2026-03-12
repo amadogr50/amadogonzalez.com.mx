@@ -2,7 +2,7 @@
 
 Personal portfolio and digital garden of **Amado González** — Lead Mobile & Product Engineer focused on building production-grade systems.
 
-This is a **monorepo** containing the portfolio site and CMS, managed with **Turbo** and **pnpm workspaces**.
+This is a **monorepo** containing the portfolio site, managed with **Turbo** and **pnpm workspaces**.
 
 ---
 
@@ -12,7 +12,6 @@ This is a **monorepo** containing the portfolio site and CMS, managed with **Tur
 amadogonzalez.dev/
 ├── apps/
 │   ├── web/             # Main portfolio site (Next.js, port 3000)
-│   └── cms/             # Payload CMS backend (Next.js, port 3001)
 ├── packages/
 │   ├── ui/              # Shared React components
 │   ├── types/           # Shared TypeScript types
@@ -28,18 +27,11 @@ amadogonzalez.dev/
 - Next.js 15 single-page application
 - Responsive portfolio layout with project showcase
 - Runs on `localhost:3000`
-- Displays content managed through the CMS
-
-#### **cms** — Content Management System
-- Payload CMS with PostgreSQL database
-- Admin interface for managing portfolio content
-- GraphQL and REST APIs for content
-- Runs on `localhost:3001`
 
 ### Shared Packages (`packages/`)
 
 #### **ui**
-Reusable React components and design system used across the portfolio and CMS.
+Reusable React components and design system used across the portfolio.
 
 #### **types**
 Shared TypeScript type definitions used across applications.
@@ -52,7 +44,7 @@ Enforces consistent code style and formatting across all projects.
 ## Tech Stack
 
 ### Core
-- **Next.js 15** — React framework for both web app and CMS
+- **Next.js 15** — React framework for web app
 - **React 19** — UI library
 - **TypeScript** — Type-safe development
 
@@ -60,11 +52,6 @@ Enforces consistent code style and formatting across all projects.
 - **TailwindCSS** — Utility-first CSS framework
 - **Framer Motion** — Production-grade animations
 - **PostCSS** — CSS processing
-
-### Backend & Content
-- **Payload CMS** — Headless CMS with built-in admin UI
-- **PostgreSQL** — Database (via `@payloadcms/db-postgres`)
-- **GraphQL** — Query language for content
 
 ### Build & Tooling
 - **Turbo** — High-performance build system
@@ -104,14 +91,12 @@ Then update `.env` with your configuration:
 
 ```
 DATABASE_URL=postgresql://user:password@localhost:5432/amadogonzalez
-PAYLOAD_SECRET=your-secret-key-here
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
-NEXT_PUBLIC_CMS_URL=http://localhost:3001
 ```
 
 ### 3. Run Development Servers
 
-Start all development servers (web + CMS):
+Start development server
 
 ```bash
 pnpm dev
@@ -119,15 +104,6 @@ pnpm dev
 
 This will:
 - Start the portfolio site on `http://localhost:3000`
-- Start the CMS on `http://localhost:3001`
-
-### 4. Generate CMS Types (Optional)
-
-If you modify Payload CMS collections, regenerate TypeScript types:
-
-```bash
-pnpm cms payload:generate
-```
 
 ---
 

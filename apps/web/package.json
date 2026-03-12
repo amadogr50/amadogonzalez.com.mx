@@ -12,7 +12,6 @@
     "clean": "rm -rf .next .turbo"
   },
   "dependencies": {
-    "@amado/types": "workspace:*",
     "@amado/ui": "workspace:*",
     "framer-motion": "^12.35.2",
     "lucide-react": "^0.525.0",
