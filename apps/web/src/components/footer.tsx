@@ -2,9 +2,8 @@ import { ScrollToTop } from '@/components/scroll-to-top'
 
 export function Footer() {
   return (
-    <footer className="relative w-full bg-ink px-6 py-10 text-center md:px-12">
+    <footer className="relative w-full bg-ink px-6 py-10 text-center md:px-12 border-t border-stone/50">
       <div className="mx-auto max-w-[600px] space-y-3">
-        <div className="mb-8 h-px w-full bg-stone/10" />
         <p className="text-xs text-stone/60">&copy; 2026 Amado González</p>
         <p className="text-[11px] text-stone/40">
           Built with Next.js · TypeScript · Tailwind
