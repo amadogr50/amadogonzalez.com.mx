@@ -11,6 +11,7 @@ import { Tags } from './collections/Tags'
 import { Posts } from './collections/Posts'
 import { Projects } from './collections/Projects'
 import { CaseStudies } from './collections/CaseStudies'
+import { env } from '@/env'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -18,10 +19,10 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   editor: lexicalEditor(),
   collections: [Media, Tags, Posts, Projects, CaseStudies],
-  secret: process.env.PAYLOAD_SECRET || 'default-secret-change-me',
+  secret: env.PAYLOAD_SECRET,
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URL || '',
+      connectionString: env.DATABASE_URL,
     },
   }),
   sharp,
@@ -43,7 +44,7 @@ export default buildConfig({
       generateTitle: ({ doc }) =>
         `${typeof doc?.title === 'string' ? doc.title : 'Untitled'} | Mario Amado`,
       generateURL: ({ doc, collectionSlug }) =>
-        `${process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'}/${collectionSlug}/${typeof doc?.slug === 'string' ? doc.slug : ''}`,
+        `${env.NEXT_PUBLIC_SITE_URL}/${collectionSlug}/${typeof doc?.slug === 'string' ? doc.slug : ''}`,
     }),
   ],
   admin: {

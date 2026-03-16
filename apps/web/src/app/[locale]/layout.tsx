@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { Nav } from '@/components/nav'
 import { Footer } from '@/components/footer'
+import { env } from '@/env'
 
 type Props = {
   children: React.ReactNode
@@ -26,9 +27,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'metadata' })
 
   return {
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_SITE_URL || 'https://amadogonzalez.dev',
-    ),
+    metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
     title: {
       default: t('title'),
       template: t('titleTemplate'),
