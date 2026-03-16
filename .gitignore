@@ -6,3 +6,12 @@ dist/
 .env.local
 .env.*.local
 *.tsbuildinfo
+.vercel
+.env*.local
+
+# Doom WASM assets (easter egg)
+apps/web/public/doom/*.js
+apps/web/public/doom/*.wasm
+apps/web/public/doom/*.data
+apps/web/public/doom/*.wad
+apps/web/public/doom/*.mp3

@@ -7,7 +7,13 @@ import { routing } from '@/i18n/routing'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
+import dynamic from 'next/dynamic'
 import React from 'react'
+
+const EasterEgg = dynamic(
+  () => import('@/easter-egg').then((m) => m.EasterEggProvider),
+  { ssr: false },
+)
 
 type Props = {
   children: React.ReactNode
@@ -103,6 +109,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           type="application/ld+json"
         />
       </NextIntlClientProvider>
+      <EasterEgg />
     </>
   )
 }

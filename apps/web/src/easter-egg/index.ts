@@ -1,0 +1,1 @@
+export { EasterEggProvider } from './EasterEggProvider'
