@@ -6,7 +6,9 @@
     "NODE_ENV",
     "DATABASE_URL",
     "PAYLOAD_SECRET",
-    "NEXT_PUBLIC_SITE_URL"
+    "NEXT_PUBLIC_SITE_URL",
+    "NEXT_PUBLIC_UMAMI_URL",
+    "NEXT_PUBLIC_UMAMI_WEBSITE_ID"
   ],
   "tasks": {
     "build": {
@@ -28,6 +30,9 @@
       "cache": false
     },
     "clean": {
+      "cache": false
+    },
+    "generate:importmap": {
       "cache": false
     }
   }

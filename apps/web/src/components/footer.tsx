@@ -14,6 +14,7 @@ export async function Footer() {
         <p className="text-[11px] text-stone/40">
           <a
             className="transition-colors duration-200 hover:text-stone/70 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-sage focus-visible:ring-offset-1 focus-visible:ring-offset-ink"
+            data-umami-event="view_source_clicked"
             href="https://github.com/amadogr50/amadogonzalez.dev"
             rel="noopener noreferrer"
             target="_blank"
@@ -27,6 +28,7 @@ export async function Footer() {
           <a
             aria-label="LinkedIn"
             className="flex h-6 w-6 items-center justify-center transition-colors duration-200 text-stone/50 hover:text-stone/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-sage focus-visible:ring-offset-1 focus-visible:ring-offset-ink"
+            data-umami-event="linkedin_clicked"
             href="https://www.linkedin.com/in/amadogr/"
             rel="noopener noreferrer"
             target="_blank"
@@ -44,6 +46,7 @@ export async function Footer() {
           <a
             aria-label="GitHub"
             className="flex h-6 w-6 items-center justify-center transition-colors duration-200 text-stone/50 hover:text-stone/80 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-sage focus-visible:ring-offset-1 focus-visible:ring-offset-ink"
+            data-umami-event="github_clicked"
             href="https://github.com/amadogr50"
             rel="noopener noreferrer"
             target="_blank"
