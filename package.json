@@ -5,6 +5,13 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "dev:web": "dotenv -e .env turbo run @amado/web#dev",
+    "cms:generate": "dotenv -e .env turbo run @amado/web#generate:importmap",
+    "infra:up": "dotenv -e .env -- docker compose -f infra/docker/compose.yml up -d",
+    "infra:down": "dotenv -e .env -- docker compose -f infra/docker/compose.yml down",
+    "infra:reset": "dotenv -e .env -- docker compose -f infra/docker/compose.yml down -v",
+    "infra:logs": "dotenv -e .env -- docker compose -f infra/docker/compose.yml logs -f",
+    "infra:stop": "dotenv -e .env -- docker compose -f infra/docker/compose.yml stop",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
     "format": "prettier --write .",
@@ -14,6 +21,7 @@
   "devDependencies": {
     "@amado/prettier-config": "workspace:*",
     "@eslint/js": "^8.57.0",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-only-warn": "^1.1.0",
