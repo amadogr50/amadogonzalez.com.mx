@@ -116,21 +116,7 @@ NEXT_PUBLIC_UMAMI_URL=http://localhost:3001/script.js
 NEXT_PUBLIC_UMAMI_WEBSITE_ID=<your-website-id-from-umami-dashboard>
 ```
 
-### 4. Run Database Migrations
-
-Before running the app for the first time (or after schema changes), apply Payload CMS migrations:
-
-```bash
-# Create the initial migration (only needed once, or after schema changes)
-pnpm cms:migrate:create --name initial
-
-# Apply pending migrations
-pnpm cms:migrate
-```
-
-Migration files are generated in `apps/web/src/migrations/` and should be committed to version control. On every Vercel deploy, migrations run automatically as part of the build step.
-
-### 5. Run Development Servers
+### 4. Run Development Servers
 
 ```bash
 pnpm dev       # all apps
@@ -138,8 +124,40 @@ pnpm dev:web   # web app only
 ```
 
 This will:
+- **Automatically apply database migrations** (via `predev` hook) before starting the dev server
 - Start the portfolio site on `http://localhost:3000`
 - Payload CMS admin panel on `http://localhost:3000/admin`
+
+#### Migration Workflow
+
+**Creating new migrations** (after schema changes):
+```bash
+pnpm cms:migrate:create --name <migration-name>
+```
+
+**Applying migrations manually** (if needed):
+```bash
+pnpm cms:migrate
+```
+
+Migration files are generated in `apps/web/src/migrations/` and **must be committed to version control**.
+
+### 5. Production Deployments (Vercel)
+
+When deploying to Vercel:
+
+1. **Build phase** — Only builds Next.js (does not run migrations, as database is not accessible during build)
+2. **Post-deploy** — After successful deployment, run migrations on your production database:
+
+```bash
+# Option A: Use Vercel CLI post-deploy hook
+vercel env pull
+pnpm cms:migrate
+
+# Option B: Create a Vercel post-deployment job in your dashboard
+```
+
+Ensure your `DATABASE_URL` environment variable is set in Vercel for production before deploying.
 
 ---
 

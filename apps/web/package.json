@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "predev": "payload migrate",
     "dev": "next dev",
-    "build": "payload migrate && next build",
+    "build": "next build",
     "migrate": "payload migrate",
     "migrate:create": "payload migrate:create",
     "generate:importmap": "payload generate:importmap",
