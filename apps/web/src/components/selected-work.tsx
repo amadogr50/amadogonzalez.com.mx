@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import { Container } from '@/components/container'
 
@@ -14,9 +15,6 @@ interface ProjectLink {
 interface Project {
   id: string
   number: string
-  title: string
-  meta: string
-  description: string
   tags: string[]
   links?: ProjectLink[]
   image?: string
@@ -26,28 +24,16 @@ const projects: Project[] = [
   {
     id: 'palacio',
     number: '01',
-    title: "Building Mexico's leading shopping experience",
-    meta: 'BILDIT · Lead React Native Engineer · 2023–2025',
-    description:
-      "Lead mobile engineer for El Palacio de Hierro's flagship app — a high-traffic luxury retail platform consistently ranked among Mexico's top shopping apps. I owned the mobile engineering lifecycle end-to-end including architecture, feature development, CI/CD pipelines, and App Store / Play Store deployments.",
     tags: ['React Native', 'Expo', 'CI/CD', 'E-commerce'],
   },
   {
     id: 'blackbrulee',
     number: '02',
-    title: 'Designing the digital backbone of a gastronomic house',
-    meta: 'Black Brûlée · Co-founder & Head of Operations · 2024–present',
-    description:
-      'I designed and deployed the complete operational technology stack for Black Brûlée, our gastronomic house in Guadalajara. The system runs on a self-hosted ERPNext instance on a VPS, containerized with Docker and reverse-proxied through Traefik with automatic SSL.',
     tags: ['ERPNext', 'Docker', 'Traefik', 'n8n', 'Self-Hosted'],
   },
   {
     id: 'lithios',
     number: '03',
-    title: 'Ten production apps, delivered end-to-end',
-    meta: 'Lithios Apps · Lead Mobile & Frontend Engineer · 2021–present',
-    description:
-      "As lead engineer at Lithios, I've delivered five mobile applications and four web platforms to production — each one taken from initial requirements through development, deployment, and ongoing support.",
     tags: ['React Native', 'Next.js', 'TypeScript', 'Full-Stack'],
   },
 ]
@@ -78,6 +64,7 @@ const itemTransition = { duration: 0.65, ease: [0.16, 1, 0.3, 1] as const }
 const imageTransition = { duration: 0.45, ease: [0.16, 1, 0.3, 1] as const }
 
 export function SelectedWork() {
+  const t = useTranslations('selectedWork')
   const [index, setIndex] = useState(0)
   const [touchStart, setTouchStart] = useState<number | null>(null)
 
@@ -117,7 +104,7 @@ export function SelectedWork() {
   return (
     <section
       id="work"
-      aria-label="Selected Work"
+      aria-label={t('sectionLabel')}
       className="relative border-t border-hairline py-20"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
@@ -125,7 +112,7 @@ export function SelectedWork() {
       <Container className="flex w-full flex-col gap-14">
         {/* Section label */}
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-warm-gray-light">
-          Selected Work
+          {t('sectionLabel')}
         </p>
 
         {/* Project viewer */}
@@ -153,19 +140,19 @@ export function SelectedWork() {
 
               <motion.div variants={itemVariants} transition={itemTransition}>
                 <h2 className="font-serif text-[1.9rem] font-light leading-[1.18] md:text-[2.4rem]">
-                  {project.title}
+                  {t(`${project.id}.title`)}
                 </h2>
               </motion.div>
 
               <motion.div variants={itemVariants} transition={itemTransition}>
                 <p className="font-serif text-[15px] italic text-stone">
-                  {project.meta}
+                  {t(`${project.id}.meta`)}
                 </p>
               </motion.div>
 
               <motion.div variants={itemVariants} transition={itemTransition}>
                 <p className="max-w-[60ch] text-[15px] leading-relaxed text-stone">
-                  {project.description}
+                  {t(`${project.id}.description`)}
                 </p>
               </motion.div>
 
@@ -210,7 +197,7 @@ export function SelectedWork() {
               {project.image ? (
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={t(`${project.id}.title`)}
                   className="h-auto w-full rounded-lg object-cover"
                 />
               ) : (
@@ -231,11 +218,11 @@ export function SelectedWork() {
         <div className="flex items-center justify-between border-t border-hairline pt-8">
           <button
             onClick={prev}
-            aria-label="Previous project"
+            aria-label={t('previous')}
             className="flex items-center gap-2 text-xs uppercase tracking-[0.12em] text-stone transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2"
           >
             <ArrowLeft size={13} strokeWidth={1.5} />
-            Previous
+            {t('previous')}
           </button>
 
           <div className="flex items-center gap-2" role="tablist" aria-label="Projects">
@@ -244,7 +231,7 @@ export function SelectedWork() {
                 key={p.id}
                 role="tab"
                 aria-selected={i === index}
-                aria-label={`Project ${i + 1}: ${p.title}`}
+                aria-label={`Project ${i + 1}: ${t(`${p.id}.title`)}`}
                 onClick={() => setIndex(i)}
                 className={`h-[3px] rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage ${
                   i === index ? 'w-7 bg-sage' : 'w-2.5 bg-hairline hover:bg-stone/40'
@@ -255,10 +242,10 @@ export function SelectedWork() {
 
           <button
             onClick={next}
-            aria-label="Next project"
+            aria-label={t('next')}
             className="flex items-center gap-2 text-xs uppercase tracking-[0.12em] text-stone transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2"
           >
-            Next
+            {t('next')}
             <ArrowRight size={13} strokeWidth={1.5} />
           </button>
         </div>

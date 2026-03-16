@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "title": "Amado González — Ingeniero de Software & Builder",
+    "titleTemplate": "%s — amadogonzalez.dev",
+    "description": "Ingeniero mobile y frontend senior con más de 8 años de experiencia. Construyo apps en producción para millones y dirijo las operaciones de una casa gastronómica en Guadalajara. React Native, TypeScript, full-stack.",
+    "ogTitle": "Amado González — Ingeniero de Software & Builder",
+    "ogDescription": "Ingeniero mobile y frontend senior con más de 8 años de experiencia. Construyo apps en producción para millones y dirijo las operaciones de una casa gastronómica en Guadalajara.",
+    "twitterTitle": "Amado González — Ingeniero de Software & Builder",
+    "twitterDescription": "Ingeniero mobile y frontend senior. React Native, TypeScript, full-stack."
+  },
+  "nav": {
+    "selectedWork": "Trabajo Selecto",
+    "about": "Acerca de",
+    "workExperience": "Experiencia",
+    "techStack": "Tech Stack",
+    "writing": "Escritura",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Amado González",
+    "subtitle": "Lead Mobile & Product Engineer",
+    "description": "Construyo productos móviles con React Native — desde la arquitectura hasta producción — y diseño los sistemas que los mantienen funcionando a escala. Mi trabajo abarca apps usadas por cientos de miles de personas y la infraestructura operativa detrás de un negocio gastronómico real.",
+    "credential1": "8+ años en software en producción",
+    "credential2": "20+ apps móviles publicadas",
+    "credential3": "10+ plataformas web",
+    "viewWork": "Ver Trabajo Selecto",
+    "contactCta": "Contacto"
+  },
+  "about": {
+    "sectionLabel": "Acerca de",
+    "heading": "Código, oficio y cosas que perduran",
+    "intro": "<dropCap>V</dropCap>eo el código como un oficio y un lenguaje para construir sistemas con los que las personas interactúan todos los días. La buena ingeniería no se trata solo de resolver problemas — se trata de convertir ideas en productos confiables que funcionan bajo condiciones reales.",
+    "paragraph2": "Soy Lead React Native Engineer con más de 8 años de experiencia construyendo y lanzando aplicaciones móviles y web en producción, tanto en startups como en entornos enterprise. A lo largo de mi carrera he entregado más de 20 aplicaciones móviles y más de 10 plataformas web, muchas de ellas usadas diariamente por cientos de miles de usuarios.",
+    "paragraph3": "Más recientemente, me desempeñé como Lead React Native Engineer para la app móvil de El Palacio de Hierro, una de las plataformas de retail de lujo más importantes de México. En ese rol fui responsable de la arquitectura móvil y el ciclo de ingeniería de principio a fin — incluyendo pipelines de CI/CD, despliegues en App Store y Play Store, monitoreo en producción y desarrollo de funcionalidades para miles de usuarios diarios.",
+    "paragraph4": "Antes en mi carrera, en Lithios, construí y lancé diez aplicaciones en producción entre móvil y web, trabajando directamente con clientes desde los requerimientos iniciales hasta el lanzamiento y soporte a largo plazo.",
+    "paragraph5": "Mi expertise principal es React Native y el ecosistema moderno de TypeScript, pero mi trabajo frecuentemente va más allá del móvil. Diseño y construyo sistemas completos — conectando aplicaciones con APIs, infraestructura, analíticas y herramientas operativas — asegurando que los productos no solo sean funcionales, sino confiables y escalables en producción.",
+    "paragraph6": "Hago mi mejor trabajo cuando puedo tomar ownership de un sistema desde la arquitectura hasta el despliegue y la estabilidad a largo plazo.",
+    "blockquoteLabel": "Acerca de",
+    "blockquote": "Ya sea en código o en cultura, me importa construir cosas que perduren e inspiren.",
+    "beyondHeading": "Más allá del software",
+    "beyond1": "Fuera de la ingeniería, soy cofundador de Black Brûlée, una casa gastronómica en Guadalajara enfocada en hospitalidad intencional y oficio culinario.",
+    "beyond2": "Construí la columna vertebral digital y operativa del negocio — seleccionando y desplegando nuestro sistema ERP (ERPNext), alojándolo en un VPS con Docker y Traefik, y creando integraciones que conectan WhatsApp e Instagram con flujos automatizados de pedidos. También gestiono sistemas de costos, inventario y producción en múltiples áreas operativas.",
+    "beyond3": "Dirigir un negocio ha afinado mi forma de pensar sobre el software: cada sistema debe sobrevivir al contacto con personas reales, restricciones reales y plazos reales."
+  },
+  "selectedWork": {
+    "sectionLabel": "Trabajo Selecto",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "palacio": {
+      "title": "Construyendo la experiencia de compra líder en México",
+      "meta": "BILDIT · Lead React Native Engineer · 2023–2025",
+      "description": "Ingeniero móvil principal de la app insignia de El Palacio de Hierro — una plataforma de retail de lujo de alto tráfico consistentemente clasificada entre las mejores apps de compras de México. Fui responsable del ciclo de ingeniería móvil de principio a fin incluyendo arquitectura, desarrollo de funcionalidades, pipelines de CI/CD y despliegues en App Store / Play Store."
+    },
+    "blackbrulee": {
+      "title": "Diseñando la columna vertebral digital de una casa gastronómica",
+      "meta": "Black Brûlée · Cofundador & Director de Operaciones · 2024–presente",
+      "description": "Diseñé y desplegué el stack tecnológico operativo completo para Black Brûlée, nuestra casa gastronómica en Guadalajara. El sistema corre sobre una instancia de ERPNext auto-alojada en un VPS, contenerizada con Docker y con reverse proxy a través de Traefik con SSL automático."
+    },
+    "lithios": {
+      "title": "Diez apps en producción, entregadas de principio a fin",
+      "meta": "Lithios Apps · Lead Mobile & Frontend Engineer · 2021–presente",
+      "description": "Como ingeniero principal en Lithios, he entregado cinco aplicaciones móviles y cuatro plataformas web a producción — cada una tomada desde los requerimientos iniciales hasta el desarrollo, despliegue y soporte continuo."
+    }
+  },
+  "workExperience": {
+    "sectionLabel": "Experiencia Laboral",
+    "heading": "Dónde he estado",
+    "viewLinkedIn": "Ver perfil completo en LinkedIn",
+    "lithios": {
+      "role": "Lead Frontend Developer",
+      "mode": "Tiempo completo",
+      "description": "Lideré el desarrollo de todas las apps móviles y plataformas web entregadas, cubriendo el ciclo completo: desarrollo, testing, configuración de ambientes, pipelines de CI/CD, despliegues en tiendas de apps y gestión de cuentas de clientes. Construí apps desde cero usando frameworks y librerías de vanguardia (React Native, Expo, React, TypeScript), mientras mantenía y daba soporte a productos existentes. Fungí como punto de contacto para clientes, asegurando su satisfacción a través de corrección de bugs, guía técnica y soporte continuo. Realicé code reviews, análisis técnicos y mentoría, asegurando estándares de alta calidad en el equipo de ingeniería. Demostré versatilidad liderando tanto desarrollo móvil como web, adoptando consistentemente las mejores prácticas para entregar productos escalables, performantes y mantenibles."
+    },
+    "palacio": {
+      "role": "Lead Engineer",
+      "mode": "Contrato · vía BILDIT",
+      "description": "Actué como desarrollador principal y punto de contacto entre BILDIT y El Palacio de Hierro, colaborando directamente con stakeholders para alinear soluciones técnicas con necesidades de negocio. Fui responsable del ciclo completo de desarrollo: implementación de funcionalidades, testing, configuración de ambientes, CI/CD, despliegues y soporte a largo plazo. Mantuve y mejoré la app insignia de e-commerce post-lanzamiento, frecuentemente siendo el ingeniero de referencia para problemas críticos, asegurando estabilidad durante periodos de alto tráfico. Entregué funcionalidades core del producto (carrito de compras, listado de productos, vistas de detalle, home) que definieron la experiencia del cliente e impulsaron ventas online. Brindé soporte continuo y actué como solucionador confiable de problemas, fortaleciendo la confianza del cliente y posicionando a BILDIT como un socio confiable."
+    },
+    "grainchain": {
+      "role": "React Native Developer",
+      "mode": "Tiempo completo",
+      "description": "Trabajé en dos productos móviles en GrainChain, una empresa de tecnología agrícola que construye software para optimizar transacciones de commodities y procesos de cadena de suministro. Contribuí a Trumodity, una plataforma de transacciones respaldada por blockchain que facilita pagos rápidos a productores y comercio de commodities en tiempo real mientras combate el fraude mediante certificación y registros inmutables. Fui desarrollador principal de Seed Audit, una herramienta de trazabilidad pre-cosecha que registra y rastrea todos los datos desde la semilla hasta la cosecha — recibos de semillas, fertilizantes, mapas de cultivo geo-referenciados — habilitando auditorías y certificación. Construí un componente de scroll bidireccional de alto rendimiento que maneja 500+ elementos en dispositivos limitados mediante renderizado optimizado y memoización, usado en formularios de certificación construidos dinámicamente. Impulsé la adopción de pipelines de CI/CD para React Native, reduciendo significativamente los tiempos de testing y despliegue. Esta fue mi primera experiencia significativa con React Native."
+    },
+    "alphawave": {
+      "role": "Mobile Developer",
+      "mode": "Freelance",
+      "description": "Trabajé dentro de un equipo de desarrollo de cinco personas construyendo aplicaciones móviles nativas para dos clientes. Desarrollé la app oficial del Zoológico de Guadalajara — una guía interactiva con compra de boletos, mapa interactivo e información para visitantes. Construí una aplicación bancaria completa para Banco Bansi con historial de transacciones, transferencias e integración de pagos móviles CoDi, una de las primeras implementaciones del sistema de pagos digitales del banco central de México. Desarrollé la app del Zoológico en Kotlin mientras contribuía a la aplicación bancaria junto con el resto del equipo."
+    },
+    "retraced": {
+      "role": "Full Stack Engineer",
+      "mode": "Tiempo completo",
+      "description": "Único ingeniero frontend en Retraced, una plataforma AI-first para sourcing, cumplimiento de producto y colaboración en el ciclo de vida de proveedores enfocada en la industria de la moda. Lideré un rediseño visual completo de su plataforma web, que ayuda a las marcas a rastrear su cadena de suministro con estándares éticos y de cumplimiento. Reconstruí el frontend usando React, Node.js y Next.js, traduciendo especificaciones de diseño en una interfaz pulida y lista para producción mientras mantenía toda la funcionalidad existente. Desarrollé páginas CRUD y vistas de datos en toda la plataforma como el único desarrollador responsable de todo el codebase frontend."
+    },
+    "nordicloop": {
+      "role": "Android Developer",
+      "mode": "Freelance",
+      "description": "Primera experiencia trabajando como contractor remoto para una empresa extranjera, entregando dos aplicaciones Android para clientes canadienses. Construí una app de wallet de Bitcoin usando Kotlin y los entonces nuevos Android architecture components con patrón MVVM. Desarrollé una aplicación de marketplace local-first diseñada para vendedores ambulantes, migrándola de un codebase legacy de Java con Model-View-Presenter a Kotlin mientras modernizaba la arquitectura. Trabajé completamente remoto desde México, gestionando comunicación entre zonas horarias y entregando ambos proyectos de forma independiente."
+    },
+    "resser": {
+      "role": "Software Engineer Intern",
+      "mode": "Pasantía",
+      "description": "Primer rol en desarrollo de software profesional en Resser, una empresa especializada en software de rastreo de flotas comerciales. Trabajé en herramientas internas que forman la columna vertebral de su infraestructura, incluyendo un sistema ERP conectado a la plataforma web para clientes. Implementé funcionalidades en el frontend usando ExtJS y contribuí modificaciones de backend en C# .NET. Construí funcionalidad automatizada de nómina involucrando cálculos complejos de terceros y lógica de negocio. Gané experiencia fundamental en desarrollo full-stack, trabajando dentro de un codebase grande existente y aprendiendo a navegar patrones de software empresarial."
+    }
+  },
+  "techStack": {
+    "sectionLabel": "Tech Stack",
+    "heading": "Resumen",
+    "intro1": "Mi enfoque técnico va más allá del desarrollo de interfaces. A lo largo de mi carrera he diseñado y construido aplicaciones móviles, plataformas web y sistemas completos en producción, conectando clientes móviles, servicios backend, infraestructura cloud y herramientas de negocio.",
+    "intro2": "Aunque mi especialización principal es desarrollo móvil con React Native, también trabajo en arquitectura de sistemas, backend, DevOps e integraciones — construyendo soluciones completas desde la idea inicial hasta la operación en producción.",
+    "mobile": {
+      "label": "Expertise Principal",
+      "title": "Desarrollo Móvil",
+      "description": "Desarrollo de aplicaciones móviles escalables, de alto rendimiento y mantenibles usadas en producción por miles de usuarios."
+    },
+    "frontend": {
+      "title": "Frontend & Web",
+      "description": "Construcción de aplicaciones web modernas y plataformas internas con un fuerte enfoque en producto."
+    },
+    "state": {
+      "title": "Gestión de Estado & Flujo de Datos",
+      "description": "Arquitecturas de estado enfocadas en simplicidad, rendimiento y mantenibilidad."
+    },
+    "backend": {
+      "title": "Backend & APIs",
+      "description": "Construcción de servicios backend ligeros y eficientes dentro del ecosistema JavaScript."
+    },
+    "devops": {
+      "title": "DevOps & Despliegues",
+      "description": "Experiencia gestionando el ciclo completo de desarrollo y despliegue, desde desarrollo hasta producción."
+    },
+    "observability": {
+      "title": "Observabilidad & Analíticas",
+      "description": "Implementación de herramientas para monitorear estabilidad de aplicaciones, errores y uso del producto."
+    },
+    "integrations": {
+      "title": "Integración de Sistemas",
+      "description": "Conectando tecnología con operaciones de negocio reales a través de integraciones y automatización de procesos."
+    },
+    "ai": {
+      "title": "Desarrollo Asistido por IA",
+      "description": "Integro herramientas de inteligencia artificial en mi flujo de desarrollo para acelerar el análisis técnico, la iteración y la resolución de problemas, manteniendo el control arquitectónico y la revisión humana."
+    }
+  },
+  "writing": {
+    "sectionLabel": "Escritura",
+    "heading": "Notas sobre construir cosas",
+    "description": "Escribo sobre la intersección de ingeniería, infraestructura y dirigir un negocio real. Mayormente práctico — ocasionalmente reflexivo.",
+    "comingSoon": "Posts próximamente."
+  },
+  "contact": {
+    "sectionLabel": "Contacto",
+    "heading": "Construyamos algo significativo",
+    "description1": "Me interesan particularmente las conversaciones reflexivas sobre construir tecnología significativa.",
+    "description2": "Si estás explorando ideas ambiciosas en IA, producto o el futuro del trabajo, me encantaría conectar e intercambiar perspectivas. A veces las cosas más interesantes comienzan con una simple conversación.",
+    "email": "Email"
+  },
+  "footer": {
+    "copyright": "© 2026 Amado González",
+    "builtWith": "Hecho con Next.js · TypeScript · Tailwind"
+  },
+  "notFound": {
+    "title": "404",
+    "description": "Esta página no existe.",
+    "backHome": "Volver al inicio"
+  }
+}

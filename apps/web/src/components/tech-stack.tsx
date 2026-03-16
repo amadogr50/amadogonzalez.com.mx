@@ -1,12 +1,10 @@
+import { getTranslations } from 'next-intl/server'
+
 import { Container } from '@/components/container'
 
 const categories = [
   {
     id: 'mobile',
-    label: 'Core Expertise',
-    title: 'Mobile Development',
-    description:
-      'Development of scalable, high-performance, and maintainable mobile applications used in production by thousands of users.',
     groups: [
       {
         name: 'Technologies',
@@ -26,10 +24,6 @@ const categories = [
   },
   {
     id: 'frontend',
-    label: null,
-    title: 'Frontend & Web',
-    description:
-      'Building modern web applications and internal platforms with a strong product-focused approach.',
     groups: [
       {
         name: 'Technologies',
@@ -47,10 +41,6 @@ const categories = [
   },
   {
     id: 'state',
-    label: null,
-    title: 'State Management & Data Flow',
-    description:
-      'State architectures focused on simplicity, performance, and maintainability.',
     groups: [
       {
         name: 'Tools',
@@ -64,10 +54,6 @@ const categories = [
   },
   {
     id: 'backend',
-    label: null,
-    title: 'Backend & APIs',
-    description:
-      'Building lightweight and efficient backend services within the JavaScript ecosystem.',
     groups: [
       {
         name: 'Technologies',
@@ -81,10 +67,6 @@ const categories = [
   },
   {
     id: 'devops',
-    label: null,
-    title: 'DevOps & Deployments',
-    description:
-      'Experience managing the full development and deployment lifecycle, from development to production.',
     groups: [
       {
         name: 'CI/CD & Automation',
@@ -102,10 +84,6 @@ const categories = [
   },
   {
     id: 'observability',
-    label: null,
-    title: 'Observability & Analytics',
-    description:
-      'Implementation of tools to monitor application stability, errors, and product usage.',
     groups: [
       {
         name: 'Tools',
@@ -115,10 +93,6 @@ const categories = [
   },
   {
     id: 'integrations',
-    label: null,
-    title: 'Systems Integration',
-    description:
-      'Connecting technology with real business operations through integrations and process automation.',
     groups: [
       {
         name: 'Experience With',
@@ -133,10 +107,6 @@ const categories = [
   },
   {
     id: 'ai',
-    label: null,
-    title: 'AI-Assisted Development',
-    description:
-      'I integrate artificial intelligence tools into my development workflow to accelerate technical analysis, iteration, and problem-solving, while maintaining architectural control and human review.',
     groups: [
       {
         name: 'Tools',
@@ -156,31 +126,23 @@ const categories = [
   },
 ]
 
-export function TechStack() {
+export async function TechStack() {
+  const t = await getTranslations('techStack')
+
   return (
     <section id="stack">
       <Container className="py-16">
       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-warm-gray-light">
-        Tech Stack
+        {t('sectionLabel')}
       </p>
       <h2 className="mt-2 font-serif text-[28px] font-medium leading-tight">
-        Overview
+        {t('heading')}
       </h2>
       <div className="mt-8 h-px w-10 bg-sage" />
 
       <div className="mt-8 max-w-[65ch] space-y-4 text-base leading-[1.85] text-stone">
-        <p>
-          My technical focus goes beyond interface development. Throughout my career I
-          have designed and built mobile applications, web platforms, and full
-          production systems, connecting mobile clients, backend services, cloud
-          infrastructure, and business tools.
-        </p>
-
-        <p>
-          While my main specialization is mobile development with React Native, I also
-          work on system architecture, backend, DevOps, and integrations—building
-          complete solutions from initial idea to production operation.
-        </p>
+        <p>{t('intro1')}</p>
+        <p>{t('intro2')}</p>
       </div>
 
       <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -193,18 +155,18 @@ export function TechStack() {
           >
             <div className="flex items-start gap-3">
               <div>
-                {category.label && (
+                {t.has(`${category.id}.label`) && (
                   <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-sage">
-                    {category.label}
+                    {t(`${category.id}.label`)}
                   </p>
                 )}
                 <h3 className="font-serif text-[18px] font-medium leading-tight text-ink">
-                  {category.title}
+                  {t(`${category.id}.title`)}
                 </h3>
               </div>
             </div>
 
-            <p className="mt-3 text-sm leading-[1.7] text-stone">{category.description}</p>
+            <p className="mt-3 text-sm leading-[1.7] text-stone">{t(`${category.id}.description`)}</p>
 
             <div className="mt-5 space-y-4">
               {category.groups.map((group) => (

@@ -1,12 +1,16 @@
+import { getTranslations } from 'next-intl/server'
+
 import { ScrollToTop } from '@/components/scroll-to-top'
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations('footer')
+
   return (
     <footer className="relative w-full bg-ink px-6 py-10 text-center md:px-12 border-t border-stone/50">
       <div className="mx-auto max-w-[600px] space-y-3">
-        <p className="text-xs text-stone/60">&copy; 2026 Amado González</p>
+        <p className="text-xs text-stone/60">{t('copyright')}</p>
         <p className="text-[11px] text-stone/40">
-          Built with Next.js · TypeScript · Tailwind
+          {t('builtWith')}
         </p>
         <p className="text-[11px] text-stone/40">
           <a

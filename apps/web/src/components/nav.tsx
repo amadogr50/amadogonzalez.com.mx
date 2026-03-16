@@ -1,20 +1,28 @@
 'use client'
 
-import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 
-const links = [
-  { href: '/#work', label: 'Selected Work' },
-  { href: '/about', label: 'About' },
-  { href: '/#experience', label: 'Work Experience' },
-  { href: '/#stack', label: 'Tech Stack' },
-  { href: '/#blog', label: 'Writing' },
-  { href: '/#contact', label: 'Contact' },
-]
+import { Link, useRouter, usePathname } from '@/i18n/routing'
 
 const NAV_HEIGHT = 64 // px — matches h-16
 
 export function Nav() {
+  const t = useTranslations('nav')
+  const locale = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const links = [
+    { href: '/#work' as const, label: t('selectedWork') },
+    { href: '/about' as const, label: t('about') },
+    { href: '/#experience' as const, label: t('workExperience') },
+    { href: '/#stack' as const, label: t('techStack') },
+    { href: '/#blog' as const, label: t('writing') },
+    { href: '/#contact' as const, label: t('contact') },
+  ]
+
   const [hidden, setHidden] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [showText, setShowText] = useState(false)
@@ -80,6 +88,10 @@ export function Nav() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [menuOpen, handleClose])
+
+  const switchLocale = () => {
+    router.replace(pathname, { locale: locale === 'en' ? 'es' : 'en' })
+  }
 
   return (
     <>
@@ -186,14 +198,15 @@ export function Nav() {
             {/* Bottom section: Language toggle & Social icons */}
             <div className="flex items-center justify-between">
               {/* Language toggle — bottom left */}
-              {/* <button
+              <button
+                onClick={switchLocale}
                 tabIndex={menuOpen ? 0 : -1}
                 className="font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-ink"
               >
-                <span className="border-b border-ink pb-px">EN</span>
+                <span className={locale === 'en' ? 'border-b border-ink pb-px' : 'text-stone'}>EN</span>
                 <span className="mx-1.5 text-stone">/</span>
-                <span className="text-stone">ES</span>
-              </button> */}
+                <span className={locale === 'es' ? 'border-b border-ink pb-px' : 'text-stone'}>ES</span>
+              </button>
 
               {/* Social icons — bottom right */}
               <div className="flex items-center gap-4">
