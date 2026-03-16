@@ -3,7 +3,10 @@
   "ui": "tui",
   "globalDependencies": [".env", ".env.local", ".env.*.local"],
   "globalEnv": [
-    "NODE_ENV"
+    "NODE_ENV",
+    "DATABASE_URL",
+    "PAYLOAD_SECRET",
+    "NEXT_PUBLIC_SITE_URL"
   ],
   "tasks": {
     "build": {
