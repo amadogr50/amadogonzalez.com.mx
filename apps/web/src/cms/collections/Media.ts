@@ -1,40 +1,40 @@
 import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
-  slug: 'media',
   access: {
     read: () => true,
   },
-  upload: {
-    imageSizes: [
-      {
-        name: 'thumbnail',
-        width: 300,
-        height: 300,
-        position: 'centre',
-      },
-      {
-        name: 'card',
-        width: 768,
-        height: 1024,
-        position: 'centre',
-      },
-      {
-        name: 'hero',
-        width: 1920,
-        height: undefined,
-        position: 'centre',
-      },
-    ],
-    adminThumbnail: 'thumbnail',
-    mimeTypes: ['image/*'],
-  },
   fields: [
     {
-      name: 'alt',
-      type: 'text',
-      required: true,
       localized: true,
+      name: 'alt',
+      required: true,
+      type: 'text',
     },
   ],
+  slug: 'media',
+  upload: {
+    adminThumbnail: 'thumbnail',
+    imageSizes: [
+      {
+        height: 300,
+        name: 'thumbnail',
+        position: 'centre',
+        width: 300,
+      },
+      {
+        height: 1024,
+        name: 'card',
+        position: 'centre',
+        width: 768,
+      },
+      {
+        height: undefined,
+        name: 'hero',
+        position: 'centre',
+        width: 1920,
+      },
+    ],
+    mimeTypes: ['image/*'],
+  },
 }

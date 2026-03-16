@@ -1,28 +1,27 @@
 import type { CollectionConfig } from 'payload'
 
 export const CaseStudies: CollectionConfig = {
-  slug: 'case-studies',
-  admin: {
-    useAsTitle: 'title',
-  },
   access: {
     read: () => true,
   },
+  admin: {
+    useAsTitle: 'title',
+  },
   fields: [
     {
-      name: 'title',
-      type: 'text',
-      required: true,
       localized: true,
+      name: 'title',
+      required: true,
+      type: 'text',
     },
     {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
       admin: {
         position: 'sidebar',
       },
+      name: 'slug',
+      required: true,
+      type: 'text',
+      unique: true,
     },
     {
       name: 'company',
@@ -37,47 +36,48 @@ export const CaseStudies: CollectionConfig = {
       type: 'text',
     },
     {
+      localized: true,
       name: 'problem',
       type: 'richText',
-      localized: true,
     },
     {
+      localized: true,
       name: 'solution',
       type: 'richText',
-      localized: true,
     },
     {
+      localized: true,
       name: 'results',
       type: 'richText',
-      localized: true,
     },
     {
-      name: 'technologies',
-      type: 'array',
       fields: [
         {
           name: 'name',
-          type: 'text',
           required: true,
+          type: 'text',
         },
       ],
+      name: 'technologies',
+      type: 'array',
     },
     {
-      name: 'gallery',
-      type: 'array',
       fields: [
         {
           name: 'image',
-          type: 'upload',
           relationTo: 'media',
           required: true,
+          type: 'upload',
         },
       ],
+      name: 'gallery',
+      type: 'array',
     },
     {
       name: 'coverImage',
-      type: 'upload',
       relationTo: 'media',
+      type: 'upload',
     },
   ],
+  slug: 'case-studies',
 }

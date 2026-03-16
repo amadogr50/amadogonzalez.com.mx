@@ -1,56 +1,56 @@
 import type { CollectionConfig } from 'payload'
 
 export const Posts: CollectionConfig = {
-  slug: 'posts',
-  admin: {
-    useAsTitle: 'title',
-  },
   access: {
     read: () => true,
   },
+  admin: {
+    useAsTitle: 'title',
+  },
   fields: [
     {
-      name: 'title',
-      type: 'text',
-      required: true,
       localized: true,
+      name: 'title',
+      required: true,
+      type: 'text',
     },
     {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
       admin: {
         position: 'sidebar',
       },
+      name: 'slug',
+      required: true,
+      type: 'text',
+      unique: true,
     },
     {
+      localized: true,
       name: 'excerpt',
       type: 'textarea',
-      localized: true,
     },
     {
+      localized: true,
       name: 'content',
       type: 'richText',
-      localized: true,
     },
     {
       name: 'coverImage',
-      type: 'upload',
       relationTo: 'media',
+      type: 'upload',
     },
     {
-      name: 'tags',
-      type: 'relationship',
-      relationTo: 'tags',
       hasMany: true,
+      name: 'tags',
+      relationTo: 'tags',
+      type: 'relationship',
     },
     {
-      name: 'publishedAt',
-      type: 'date',
       admin: {
         position: 'sidebar',
       },
+      name: 'publishedAt',
+      type: 'date',
     },
   ],
+  slug: 'posts',
 }

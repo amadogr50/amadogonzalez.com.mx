@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
-import React from 'react'
+
+import { Footer } from '@/components/footer'
+import { Nav } from '@/components/nav'
+import { env } from '@/env'
+import { routing } from '@/i18n/routing'
+import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
-import { notFound } from 'next/navigation'
-
-import { routing } from '@/i18n/routing'
-import { Nav } from '@/components/nav'
-import { Footer } from '@/components/footer'
-import { env } from '@/env'
+import React from 'react'
 
 type Props = {
   children: React.ReactNode
@@ -27,28 +27,28 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'metadata' })
 
   return {
+    description: t('description'),
     metadataBase: new URL(env.NEXT_PUBLIC_SITE_URL),
+    openGraph: {
+      description: t('ogDescription'),
+      locale: locale === 'es' ? 'es_MX' : 'en_US',
+      siteName: 'amadogonzalez.dev',
+      title: t('ogTitle'),
+      type: 'website',
+      url: 'https://amadogonzalez.dev',
+    },
+    robots: {
+      follow: true,
+      index: true,
+    },
     title: {
       default: t('title'),
       template: t('titleTemplate'),
     },
-    description: t('description'),
-    openGraph: {
-      title: t('ogTitle'),
-      description: t('ogDescription'),
-      url: 'https://amadogonzalez.dev',
-      siteName: 'amadogonzalez.dev',
-      locale: locale === 'es' ? 'es_MX' : 'en_US',
-      type: 'website',
-    },
     twitter: {
       card: 'summary_large_image',
-      title: t('twitterTitle'),
       description: t('twitterDescription'),
-    },
-    robots: {
-      index: true,
-      follow: true,
+      title: t('twitterTitle'),
     },
   }
 }
@@ -76,18 +76,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         <main>{children}</main>
         <Footer />
         <script
-          type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Person',
-              'name': 'Amado González',
               'jobTitle': 'Senior Mobile Engineer',
-              'url': 'https://amadogonzalez.dev',
-              'sameAs': [
-                'https://linkedin.com/in/amadogonzalez',
-                'https://github.com/amadogr',
-              ],
               'knowsAbout': [
                 'React Native',
                 'TypeScript',
@@ -95,12 +88,19 @@ export default async function LocaleLayout({ children, params }: Props) {
                 'Mobile Development',
                 'Self-Hosted Infrastructure',
               ],
+              'name': 'Amado González',
+              'sameAs': [
+                'https://linkedin.com/in/amadogonzalez',
+                'https://github.com/amadogr',
+              ],
+              'url': 'https://amadogonzalez.dev',
               'worksFor': {
                 '@type': 'Organization',
                 'name': 'Lithios Apps',
               },
             }),
           }}
+          type="application/ld+json"
         />
       </NextIntlClientProvider>
     </>

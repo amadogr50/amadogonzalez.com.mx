@@ -20,9 +20,9 @@ export function ScrollToTop() {
 
   return (
     <button
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       aria-label="Scroll to top"
       className="absolute bottom-10 right-0 mr-6 md:mr-12 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-cream text-ink shadow-lg transition-all duration-300 hover:opacity-80"
+      onClick={() => window.scrollTo({ behavior: 'smooth', top: 0 })}
       style={{
         opacity: visible ? 1 : 0,
         pointerEvents: visible ? 'auto' : 'none',
@@ -30,14 +30,14 @@ export function ScrollToTop() {
       }}
     >
       <svg
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
         fill="none"
+        height="16"
         stroke="currentColor"
-        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth="2"
+        viewBox="0 0 16 16"
+        width="16"
       >
         <path d="M8 14V2M2 7l6-5 6 5" />
       </svg>

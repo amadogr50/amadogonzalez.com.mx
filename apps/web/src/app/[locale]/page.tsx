@@ -1,11 +1,10 @@
-import { setRequestLocale } from 'next-intl/server'
-
+import { Contact } from '@/components/contact'
 import { Hero } from '@/components/hero'
-import { WorkExperience } from '@/components/work-experience'
 import { SelectedWork } from '@/components/selected-work'
 import { TechStack } from '@/components/tech-stack'
+import { WorkExperience } from '@/components/work-experience'
 import { WritingPreview } from '@/components/writing-preview'
-import { Contact } from '@/components/contact'
+import { setRequestLocale } from 'next-intl/server'
 
 export default async function Home({
   params,

@@ -6,8 +6,8 @@ export default function NotFound() {
       <h1 className="font-serif text-[52px] font-light text-sage">404</h1>
       <p className="mt-4 text-base text-stone">This page doesn&apos;t exist.</p>
       <Link
-        href="/"
         className="mt-8 border-b border-sage pb-0.5 text-xs uppercase tracking-[0.12em] text-ink transition-colors hover:text-sage"
+        href="/"
       >
         Back to home
       </Link>

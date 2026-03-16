@@ -1,17 +1,14 @@
-import { getTranslations } from 'next-intl/server'
-
 import { Container } from '@/components/container'
+import { getTranslations } from 'next-intl/server'
 
 const categories = [
   {
-    id: 'mobile',
     groups: [
       {
-        name: 'Technologies',
         items: ['React Native', 'Expo', 'TypeScript', 'Kotlin', 'iOS / Android'],
+        name: 'Technologies',
       },
       {
-        name: 'Performance & Optimization',
         items: [
           'FlashList',
           'Expo Image',
@@ -19,101 +16,101 @@ const categories = [
           'Virtualized lists',
           'Asset optimization',
         ],
+        name: 'Performance & Optimization',
       },
     ],
+    id: 'mobile',
   },
   {
-    id: 'frontend',
     groups: [
       {
-        name: 'Technologies',
         items: ['React', 'Next.js', 'JavaScript / TypeScript', 'HTML / CSS'],
+        name: 'Technologies',
       },
       {
-        name: 'Capabilities',
         items: [
           'Server-side rendering',
           'Component-driven architecture',
           'Image optimization',
         ],
+        name: 'Capabilities',
       },
     ],
+    id: 'frontend',
   },
   {
-    id: 'state',
     groups: [
       {
-        name: 'Tools',
         items: ['React Context API', 'Zustand', 'React Query', 'REST APIs'],
-      },
-      {
-        name: 'Additional Experience',
-        items: ['Redux'],
-      },
-    ],
-  },
-  {
-    id: 'backend',
-    groups: [
-      {
-        name: 'Technologies',
-        items: ['Node.js', 'Express', 'Fastify'],
-      },
-      {
-        name: 'Data Infrastructure',
-        items: ['Redis', 'BullMQ'],
-      },
-    ],
-  },
-  {
-    id: 'devops',
-    groups: [
-      {
-        name: 'CI/CD & Automation',
-        items: ['Jenkins', 'Fastlane', 'EAS', 'Custom pipelines'],
-      },
-      {
-        name: 'Infrastructure',
-        items: ['Docker', 'Firebase', 'Railway', 'Azure', 'Heroku', 'VPS'],
-      },
-      {
-        name: 'Mobile Distribution',
-        items: ['App Store', 'Google Play Store'],
-      },
-    ],
-  },
-  {
-    id: 'observability',
-    groups: [
-      {
         name: 'Tools',
-        items: ['Sentry', 'Plausible Analytics', 'Google Analytics'],
+      },
+      {
+        items: ['Redux'],
+        name: 'Additional Experience',
       },
     ],
+    id: 'state',
   },
   {
-    id: 'integrations',
     groups: [
       {
-        name: 'Experience With',
+        items: ['Node.js', 'Express', 'Fastify'],
+        name: 'Technologies',
+      },
+      {
+        items: ['Redis', 'BullMQ'],
+        name: 'Data Infrastructure',
+      },
+    ],
+    id: 'backend',
+  },
+  {
+    groups: [
+      {
+        items: ['Jenkins', 'Fastlane', 'EAS', 'Custom pipelines'],
+        name: 'CI/CD & Automation',
+      },
+      {
+        items: ['Docker', 'Firebase', 'Railway', 'Azure', 'Heroku', 'VPS'],
+        name: 'Infrastructure',
+      },
+      {
+        items: ['App Store', 'Google Play Store'],
+        name: 'Mobile Distribution',
+      },
+    ],
+    id: 'devops',
+  },
+  {
+    groups: [
+      {
+        items: ['Sentry', 'Plausible Analytics', 'Google Analytics'],
+        name: 'Tools',
+      },
+    ],
+    id: 'observability',
+  },
+  {
+    groups: [
+      {
         items: [
           'ERP integrations',
           'Operational automation',
           'SMS systems',
           'Cross-platform integrations',
         ],
+        name: 'Experience With',
       },
     ],
+    id: 'integrations',
   },
   {
-    id: 'ai',
     groups: [
       {
-        name: 'Tools',
         items: ['Claude', 'ChatGPT', 'Cursor'],
+        name: 'Tools',
       },
       {
-        name: 'Applications',
         items: [
           'Architectures and patterns',
           'Complex debugging',
@@ -121,8 +118,10 @@ const categories = [
           'Technical documentation',
           'Rapid prototyping',
         ],
+        name: 'Applications',
       },
     ],
+    id: 'ai',
   },
 ]
 
@@ -148,10 +147,10 @@ export async function TechStack() {
       <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
         {categories.map((category) => (
           <div
-            key={category.id}
             className={`rounded-lg border border-hairline bg-card-bg p-7 ${
               category.id === 'mobile' ? 'md:col-span-2' : ''
             }`}
+            key={category.id}
           >
             <div className="flex items-start gap-3">
               <div>
@@ -177,8 +176,8 @@ export async function TechStack() {
                   <div className="flex flex-wrap gap-1.5">
                     {group.items.map((item) => (
                       <span
-                        key={item}
                         className="whitespace-nowrap rounded-full bg-sage px-2.5 py-1 text-[10px] uppercase tracking-wider text-ink"
+                        key={item}
                       >
                         {item}
                       </span>

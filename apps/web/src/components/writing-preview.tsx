@@ -1,6 +1,5 @@
-import { getTranslations } from 'next-intl/server'
-
 import { Container } from '@/components/container'
+import { getTranslations } from 'next-intl/server'
 
 export async function WritingPreview() {
   const t = await getTranslations('writing')

@@ -1,6 +1,5 @@
-import { setRequestLocale } from 'next-intl/server'
-
 import { About } from '@/components/about'
+import { setRequestLocale } from 'next-intl/server'
 
 export default async function AboutPage({
   params,

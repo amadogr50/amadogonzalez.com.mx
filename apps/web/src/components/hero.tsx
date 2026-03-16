@@ -1,7 +1,6 @@
-import { getTranslations } from 'next-intl/server'
-
-import { Link } from '@/i18n/routing'
 import { Container } from '@/components/container'
+import { Link } from '@/i18n/routing'
+import { getTranslations } from 'next-intl/server'
 
 export async function Hero() {
   const t = await getTranslations('hero')
@@ -40,7 +39,7 @@ export async function Hero() {
             { href: '#work' as const, label: t('viewWork') },
             { href: '#contact' as const, label: t('contactCta') },
           ].map(({ href, label }) => (
-            <Link key={href} href={href} className="btn-ink">
+            <Link className="btn-ink" href={href} key={href}>
               <span className="btn-ink-label">{label}</span>
               <span className="btn-ink-label-hover">{label}</span>
             </Link>

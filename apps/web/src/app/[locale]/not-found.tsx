@@ -1,6 +1,5 @@
-import { useTranslations } from 'next-intl'
-
 import { Link } from '@/i18n/routing'
+import { useTranslations } from 'next-intl'
 
 export default function NotFound() {
   const t = useTranslations('notFound')
@@ -10,8 +9,8 @@ export default function NotFound() {
       <h1 className="font-serif text-[52px] font-light text-sage">{t('title')}</h1>
       <p className="mt-4 text-base text-stone">{t('description')}</p>
       <Link
-        href="/"
         className="mt-8 border-b border-sage pb-0.5 text-xs uppercase tracking-[0.12em] text-ink transition-colors hover:text-sage"
+        href="/"
       >
         {t('backHome')}
       </Link>

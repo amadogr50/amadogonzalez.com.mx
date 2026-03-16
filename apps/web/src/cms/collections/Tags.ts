@@ -1,28 +1,28 @@
 import type { CollectionConfig } from 'payload'
 
 export const Tags: CollectionConfig = {
-  slug: 'tags',
-  admin: {
-    useAsTitle: 'name',
-  },
   access: {
     read: () => true,
   },
+  admin: {
+    useAsTitle: 'name',
+  },
   fields: [
     {
-      name: 'name',
-      type: 'text',
-      required: true,
       localized: true,
+      name: 'name',
+      required: true,
+      type: 'text',
     },
     {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
       admin: {
         position: 'sidebar',
       },
+      name: 'slug',
+      required: true,
+      type: 'text',
+      unique: true,
     },
   ],
+  slug: 'tags',
 }

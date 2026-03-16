@@ -4,7 +4,7 @@ export async function Contact() {
   const t = await getTranslations('contact')
 
   return (
-    <section id="contact" className="w-full bg-ink px-6 py-28 text-center md:px-12 md:py-36">
+    <section className="w-full bg-ink px-6 py-28 text-center md:px-12 md:py-36" id="contact">
       <div className="mx-auto max-w-[600px]">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-sage">
           {t('sectionLabel')}
@@ -27,8 +27,8 @@ export async function Contact() {
           <ul className="mt-12 flex flex-wrap justify-center gap-4">
             <li>
               <a
-                href="mailto:hola@amadogonzalez.com.mx"
                 className="btn-ink ring-1 ring-cream/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                href="mailto:hola@amadogonzalez.com.mx"
               >
                 <span className="btn-ink-label inline-flex items-center gap-2">
                   {t('email')}

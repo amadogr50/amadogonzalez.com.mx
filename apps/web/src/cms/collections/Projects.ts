@@ -1,43 +1,42 @@
 import type { CollectionConfig } from 'payload'
 
 export const Projects: CollectionConfig = {
-  slug: 'projects',
-  admin: {
-    useAsTitle: 'title',
-  },
   access: {
     read: () => true,
   },
+  admin: {
+    useAsTitle: 'title',
+  },
   fields: [
     {
-      name: 'title',
-      type: 'text',
-      required: true,
       localized: true,
+      name: 'title',
+      required: true,
+      type: 'text',
     },
     {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
       admin: {
         position: 'sidebar',
       },
+      name: 'slug',
+      required: true,
+      type: 'text',
+      unique: true,
     },
     {
+      localized: true,
       name: 'description',
       type: 'textarea',
-      localized: true,
     },
     {
+      localized: true,
       name: 'content',
       type: 'richText',
-      localized: true,
     },
     {
       name: 'coverImage',
-      type: 'upload',
       relationTo: 'media',
+      type: 'upload',
     },
     {
       name: 'repoUrl',
@@ -48,35 +47,36 @@ export const Projects: CollectionConfig = {
       type: 'text',
     },
     {
-      name: 'technologies',
-      type: 'array',
       fields: [
         {
           name: 'name',
-          type: 'text',
           required: true,
+          type: 'text',
         },
       ],
+      name: 'technologies',
+      type: 'array',
     },
     {
-      name: 'featured',
-      type: 'checkbox',
-      defaultValue: false,
       admin: {
         position: 'sidebar',
       },
+      defaultValue: false,
+      name: 'featured',
+      type: 'checkbox',
     },
     {
-      name: 'status',
-      type: 'select',
+      admin: {
+        position: 'sidebar',
+      },
       defaultValue: 'active',
+      name: 'status',
       options: [
         { label: 'Active', value: 'active' },
         { label: 'Archived', value: 'archived' },
       ],
-      admin: {
-        position: 'sidebar',
-      },
+      type: 'select',
     },
   ],
+  slug: 'projects',
 }

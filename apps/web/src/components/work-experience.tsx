@@ -1,16 +1,14 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
-import { useTranslations } from 'next-intl'
-
 import { Container } from '@/components/container'
+import { useTranslations } from 'next-intl'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const experiences = [
   {
-    id: 'lithios',
     company: 'Lithios',
-    startDate: 'Jan 2021',
     endDate: 'Present',
+    id: 'lithios',
     skills: [
       'React Native',
       'Expo',
@@ -21,12 +19,12 @@ const experiences = [
       'Code Review',
       'Mentorship',
     ],
+    startDate: 'Jan 2021',
   },
   {
-    id: 'palacio',
     company: 'El Palacio de Hierro',
-    startDate: 'Jun 2023',
     endDate: 'May 2025',
+    id: 'palacio',
     skills: [
       'React Native',
       'E-Commerce',
@@ -35,12 +33,12 @@ const experiences = [
       'Stakeholder Management',
       'Production Stability',
     ],
+    startDate: 'Jun 2023',
   },
   {
-    id: 'grainchain',
     company: 'GrainChain Inc',
-    startDate: 'Jan 2020',
     endDate: 'Dec 2020',
+    id: 'grainchain',
     skills: [
       'React Native',
       'Blockchain',
@@ -48,34 +46,35 @@ const experiences = [
       'Performance Optimization',
       'Agriculture Tech',
     ],
+    startDate: 'Jan 2020',
   },
   {
-    id: 'alphawave',
     company: 'Alpha Wave Systems',
-    startDate: 'Jul 2019',
     endDate: 'Dec 2019',
+    id: 'alphawave',
     skills: ['Kotlin', 'Android', 'Mobile Payments', 'CoDi', 'Native Development'],
+    startDate: 'Jul 2019',
   },
   {
-    id: 'retraced',
     company: 'Retraced',
-    startDate: 'Jan 2019',
     endDate: 'Dec 2019',
+    id: 'retraced',
     skills: ['React', 'Node.js', 'Next.js', 'UI Redesign', 'Supply Chain'],
+    startDate: 'Jan 2019',
   },
   {
-    id: 'nordicloop',
     company: 'nordicloop',
-    startDate: 'Jan 2018',
     endDate: 'Dec 2018',
+    id: 'nordicloop',
     skills: ['Kotlin', 'Java', 'Android', 'MVVM', 'Bitcoin', 'Remote'],
+    startDate: 'Jan 2018',
   },
   {
-    id: 'resser',
     company: 'Resser Tecnologías',
-    startDate: 'Jan 2017',
     endDate: 'Dec 2017',
+    id: 'resser',
     skills: ['ExtJS', 'C# .NET', 'ERP', 'Fleet Tracking', 'Backend'],
+    startDate: 'Jan 2017',
   },
 ]
 
@@ -94,25 +93,25 @@ function useIsMobile() {
 }
 
 function ExperienceItem({
+  description,
   experience,
   index,
   isExpanded,
-  onExpand,
-  onCollapse,
   isMobile,
-  role,
   mode,
-  description,
+  onCollapse,
+  onExpand,
+  role,
 }: {
+  description: string
   experience: (typeof experiences)[number]
   index: number
   isExpanded: boolean
-  onExpand: (index: number) => void
-  onCollapse: (index: number) => void
   isMobile: boolean
-  role: string
   mode: string
-  description: string
+  onCollapse: (index: number) => void
+  onExpand: (index: number) => void
+  role: string
 }) {
   const [contentHeight, setContentHeight] = useState(0)
   const expandedRef = useRef<HTMLDivElement>(null)
@@ -143,10 +142,10 @@ function ExperienceItem({
 
   return (
     <div
-      ref={itemRef}
       className="group relative pl-8 md:pl-10"
       onMouseEnter={() => !isMobile && onExpand(index)}
       onMouseLeave={() => !isMobile && onCollapse(index)}
+      ref={itemRef}
     >
       {/* Timeline dot */}
       <div
@@ -176,8 +175,8 @@ function ExperienceItem({
 
       {/* Expanded content — divider + skills */}
       <div
-        ref={expandedRef}
         className="overflow-hidden transition-[max-height] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+        ref={expandedRef}
         style={{
           maxHeight: isExpanded ? `${contentHeight}px` : '0px',
         }}
@@ -186,8 +185,8 @@ function ExperienceItem({
         <div
           className="mt-4 h-px bg-sage transition-[width] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
           style={{
-            width: isExpanded ? '100%' : '0%',
             transitionDelay: isExpanded ? '150ms' : '0ms',
+            width: isExpanded ? '100%' : '0%',
           }}
         />
 
@@ -195,12 +194,12 @@ function ExperienceItem({
         <div className="mt-4 flex flex-wrap gap-1.5 pb-1">
           {experience.skills.map((skill, i) => (
             <span
-              key={skill}
               className="whitespace-nowrap rounded-full bg-sage px-2.5 py-1 text-[10px] uppercase tracking-wider text-ink transition-all duration-300"
+              key={skill}
               style={{
-                transitionDelay: isExpanded ? `${200 + i * 50}ms` : '0ms',
                 opacity: isExpanded ? 1 : 0,
                 transform: isExpanded ? 'translateY(0)' : 'translateY(8px)',
+                transitionDelay: isExpanded ? `${200 + i * 50}ms` : '0ms',
               }}
             >
               {skill}
@@ -215,7 +214,7 @@ function ExperienceItem({
 export function WorkExperience() {
   const t = useTranslations('workExperience')
   const isMobile = useIsMobile()
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [activeIndex, setActiveIndex] = useState<null | number>(null)
 
   const handleExpand = useCallback((index: number) => {
     setActiveIndex(index)
@@ -244,16 +243,16 @@ export function WorkExperience() {
         <div className="space-y-10">
           {experiences.map((exp, i) => (
             <ExperienceItem
-              key={`${exp.company}-${exp.startDate}`}
+              description={t(`${exp.id}.description`)}
               experience={exp}
               index={i}
               isExpanded={activeIndex === i}
-              onExpand={handleExpand}
-              onCollapse={handleCollapse}
               isMobile={isMobile}
-              role={t(`${exp.id}.role`)}
+              key={`${exp.company}-${exp.startDate}`}
               mode={t(`${exp.id}.mode`)}
-              description={t(`${exp.id}.description`)}
+              onCollapse={handleCollapse}
+              onExpand={handleExpand}
+              role={t(`${exp.id}.role`)}
             />
           ))}
         </div>
@@ -262,10 +261,10 @@ export function WorkExperience() {
       {/* LinkedIn CTA */}
       <div className="mt-14 text-center">
         <a
-          href="https://www.linkedin.com/in/amadogr/"
-          target="_blank"
-          rel="noopener noreferrer"
           className="btn-ink"
+          href="https://www.linkedin.com/in/amadogr/"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <span className="btn-ink-label">{t('viewLinkedIn')}</span>
           <span className="btn-ink-label-hover">{t('viewLinkedIn')}</span>

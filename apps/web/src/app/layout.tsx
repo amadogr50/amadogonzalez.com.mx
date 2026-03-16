@@ -4,17 +4,17 @@ import React from 'react'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-serif',
   display: 'swap',
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  variable: '--font-serif',
+  weight: ['300', '400', '500', '600'],
 })
 
 const dmSans = DM_Sans({
+  display: 'swap',
   subsets: ['latin'],
   variable: '--font-sans',
-  display: 'swap',
 })
 
 export default function RootLayout({

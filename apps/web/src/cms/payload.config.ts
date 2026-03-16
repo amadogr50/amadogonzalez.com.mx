@@ -1,55 +1,55 @@
-import { buildConfig } from 'payload'
+import { env } from '@/env'
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { seoPlugin } from '@payloadcms/plugin-seo'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { buildConfig } from 'payload'
 import sharp from 'sharp'
 
+import { CaseStudies } from './collections/CaseStudies'
 import { Media } from './collections/Media'
-import { Tags } from './collections/Tags'
 import { Posts } from './collections/Posts'
 import { Projects } from './collections/Projects'
-import { CaseStudies } from './collections/CaseStudies'
-import { env } from '@/env'
+import { Tags } from './collections/Tags'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  editor: lexicalEditor(),
+  admin: {
+    importMap: {
+      baseDir: path.resolve(dirname, '..'),
+    },
+  },
   collections: [Media, Tags, Posts, Projects, CaseStudies],
-  secret: env.PAYLOAD_SECRET,
   db: postgresAdapter({
     pool: {
       connectionString: env.DATABASE_URL,
     },
   }),
-  sharp,
-  typescript: {
-    outputFile: path.resolve(dirname, '../payload-types.ts'),
-  },
+  editor: lexicalEditor(),
   localization: {
-    locales: [
-      { label: 'English', code: 'en' },
-      { label: 'Spanish', code: 'es' },
-    ],
     defaultLocale: 'en',
     fallback: true,
+    locales: [
+      { code: 'en', label: 'English' },
+      { code: 'es', label: 'Spanish' },
+    ],
   },
   plugins: [
     seoPlugin({
       collections: ['posts', 'projects', 'case-studies'],
-      uploadsCollection: 'media',
       generateTitle: ({ doc }) =>
         `${typeof doc?.title === 'string' ? doc.title : 'Untitled'} | Mario Amado`,
-      generateURL: ({ doc, collectionSlug }) =>
+      generateURL: ({ collectionSlug, doc }) =>
         `${env.NEXT_PUBLIC_SITE_URL}/${collectionSlug}/${typeof doc?.slug === 'string' ? doc.slug : ''}`,
+      uploadsCollection: 'media',
     }),
   ],
-  admin: {
-    importMap: {
-      baseDir: path.resolve(dirname, '..'),
-    },
+  secret: env.PAYLOAD_SECRET,
+  sharp,
+  typescript: {
+    outputFile: path.resolve(dirname, '../payload-types.ts'),
   },
 })
