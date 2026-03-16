@@ -1,4 +1,4 @@
-# amadogonzalez.dev
+# amadogonzalez.com.mx
 
 Personal portfolio and digital garden of **Amado González** — Lead Mobile & Product Engineer focused on building production-grade systems.
 
@@ -9,7 +9,7 @@ This is a **monorepo** containing the portfolio site, managed with **Turbo** and
 ## Monorepo Structure
 
 ```
-amadogonzalez.dev/
+amadogonzalez.com.mx/
 ├── apps/
 │   ├── web/             # Main portfolio site (Next.js, port 3000)
 ├── packages/
@@ -24,8 +24,9 @@ amadogonzalez.dev/
 ### Applications (`apps/`)
 
 #### **web** — Portfolio Site
-- Next.js 15 single-page application
+- Next.js 15 application with App Router
 - Responsive portfolio layout with project showcase
+- **Payload CMS** embedded for content management (admin at `/admin`)
 - Runs on `localhost:3000`
 
 ### Shared Packages (`packages/`)
@@ -44,9 +45,13 @@ Enforces consistent code style and formatting across all projects.
 ## Tech Stack
 
 ### Core
-- **Next.js 15** — React framework for web app
+- **Next.js 15** — React framework with App Router
 - **React 19** — UI library
 - **TypeScript** — Type-safe development
+
+### Content & Analytics
+- **Payload CMS** — Headless CMS embedded in the Next.js app, admin panel at `/admin`
+- **Umami** — Self-hosted, privacy-first analytics
 
 ### Styling & Animation
 - **TailwindCSS** — Utility-first CSS framework
@@ -60,7 +65,8 @@ Enforces consistent code style and formatting across all projects.
 - **Prettier** — Code formatting
 
 ### Deployment
-- **Vercel** — Hosting platform
+- **Vercel** — Hosting platform for the Next.js app
+- **PostgreSQL** — Database for Payload CMS and Umami
 
 ---
 
@@ -79,7 +85,19 @@ Enforces consistent code style and formatting across all projects.
 pnpm install
 ```
 
-### 2. Set Up Environment Variables
+### 2. Start Infrastructure
+
+Start PostgreSQL and Umami with Docker Compose:
+
+```bash
+pnpm infra:up
+```
+
+This starts:
+- **PostgreSQL** on `localhost:5432` — used by both Payload CMS and Umami
+- **Umami** on `http://localhost:3001` — analytics dashboard (default credentials: `admin` / `umami`)
+
+### 3. Set Up Environment Variables
 
 Copy the example environment file:
 
@@ -87,22 +105,27 @@ Copy the example environment file:
 cp .env.example .env
 ```
 
-Then update `.env` with your configuration:
+Then update `.env` with your configuration. Key variables:
 
 ```
 NODE_ENV=development
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/amadogonzalez
+PAYLOAD_SECRET=dev-secret-change-in-production
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_UMAMI_URL=http://localhost:3001/script.js
+NEXT_PUBLIC_UMAMI_WEBSITE_ID=<your-website-id-from-umami-dashboard>
 ```
 
-### 3. Run Development Servers
-
-Start development server
+### 4. Run Development Servers
 
 ```bash
-pnpm dev
+pnpm dev       # all apps
+pnpm dev:web   # web app only
 ```
 
 This will:
 - Start the portfolio site on `http://localhost:3000`
+- Payload CMS admin panel on `http://localhost:3000/admin`
 
 ---
 
@@ -114,8 +137,14 @@ All commands are orchestrated through Turbo and apply to the entire monorepo:
 # Build all applications
 pnpm build
 
-# Run development servers
+# Run all development servers
 pnpm dev
+
+# Run only the web app
+pnpm dev:web
+
+# Regenerate Payload CMS import map (run after adding/changing collections)
+pnpm cms:generate
 
 # Lint all code
 pnpm lint
@@ -133,13 +162,34 @@ pnpm format:check
 pnpm clean
 ```
 
+## Infrastructure Commands
+
+```bash
+# Start all services (PostgreSQL, Umami)
+pnpm infra:up
+
+# Stop all services (keep volumes)
+pnpm infra:stop
+
+# Stop and remove containers (keep volumes)
+pnpm infra:down
+
+# Stop and remove containers + volumes (destructive)
+pnpm infra:reset
+
+# Tail logs from all services
+pnpm infra:logs
+```
+
 ---
 
 ## Features
 
 - **Editorial-style portfolio** with project showcase
 - **Fullscreen project viewer** for detailed work presentation
-- **Content management system** for maintaining portfolio data
+- **Payload CMS** — embedded headless CMS for content management
+- **Umami analytics** — self-hosted, privacy-first pageview and event tracking
+- **i18n** — English and Spanish via `next-intl`
 - **Responsive design** optimized for all displays
 - **Type-safe throughout** with full TypeScript coverage
 - **Production-ready** with build optimization and deployment ready
@@ -174,6 +224,6 @@ You are welcome to use the code as inspiration for your own projects, but please
 **Amado González**
 Lead Mobile & Product Engineer
 
-- Portfolio: https://amadogonzalez.dev
+- Portfolio: https://amadogonzalez.com.mx
 - LinkedIn: https://linkedin.com/in/amadogonzalez
 - GitHub: https://github.com/amadogonzalez
