@@ -34,6 +34,12 @@
     },
     "generate:importmap": {
       "cache": false
+    },
+    "migrate": {
+      "cache": false
+    },
+    "migrate:create": {
+      "cache": false
     }
   }
 }

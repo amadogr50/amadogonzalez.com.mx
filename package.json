@@ -7,6 +7,8 @@
     "dev": "turbo run dev",
     "dev:web": "dotenv -e .env turbo run @amado/web#dev",
     "cms:generate": "dotenv -e .env turbo run @amado/web#generate:importmap",
+    "cms:migrate": "dotenv -e .env turbo run @amado/web#migrate",
+    "cms:migrate:create": "dotenv -e .env turbo run @amado/web#migrate:create",
     "infra:up": "dotenv -e .env -- docker compose -f infra/docker/compose.yml up -d",
     "infra:down": "dotenv -e .env -- docker compose -f infra/docker/compose.yml down",
     "infra:reset": "dotenv -e .env -- docker compose -f infra/docker/compose.yml down -v",

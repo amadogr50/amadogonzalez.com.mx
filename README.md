@@ -116,7 +116,21 @@ NEXT_PUBLIC_UMAMI_URL=http://localhost:3001/script.js
 NEXT_PUBLIC_UMAMI_WEBSITE_ID=<your-website-id-from-umami-dashboard>
 ```
 
-### 4. Run Development Servers
+### 4. Run Database Migrations
+
+Before running the app for the first time (or after schema changes), apply Payload CMS migrations:
+
+```bash
+# Create the initial migration (only needed once, or after schema changes)
+pnpm cms:migrate:create --name initial
+
+# Apply pending migrations
+pnpm cms:migrate
+```
+
+Migration files are generated in `apps/web/src/migrations/` and should be committed to version control. On every Vercel deploy, migrations run automatically as part of the build step.
+
+### 5. Run Development Servers
 
 ```bash
 pnpm dev       # all apps
@@ -145,6 +159,12 @@ pnpm dev:web
 
 # Regenerate Payload CMS import map (run after adding/changing collections)
 pnpm cms:generate
+
+# Create a new Payload CMS migration (run after schema changes)
+pnpm cms:migrate:create --name <migration-name>
+
+# Apply pending Payload CMS migrations
+pnpm cms:migrate
 
 # Lint all code
 pnpm lint
