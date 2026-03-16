@@ -18,7 +18,12 @@ export const config = [
   ...tseslint.configs.recommended,
 
   // Perfectionist
-  perfectionist.configs['recommended-natural'],
+  {
+    plugins: {
+      perfectionist: perfectionist,
+    },
+    rules: perfectionist.configs['recommended-natural'].rules,
+  },
 
   // Turbo
   {

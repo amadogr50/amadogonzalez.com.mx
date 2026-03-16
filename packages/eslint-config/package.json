@@ -8,21 +8,19 @@
     "./node": "./node.js",
     "./next": "./next.js"
   },
-  "peerDependencies": {
-    "@eslint/js": "^10.0.1",
-    "eslint": "^10.0.2",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-only-warn": "^1.1.0",
-    "eslint-plugin-perfectionist": "^5.6.0",
-    "eslint-plugin-turbo": "^2.8.11",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.1"
+  "dependencies": {
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^4.6.2"
   },
-  "peerDependenciesOptional": {
-    "@tanstack/eslint-plugin-query": true,
-    "eslint-config-expo": true,
-    "eslint-plugin-react": true,
-    "eslint-plugin-react-hooks": true
+  "peerDependencies": {
+    "@eslint/js": "^8.57.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-perfectionist": "^2.11.0",
+    "eslint-plugin-turbo": "^2.8.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^7.0.0"
   },
   "engines": {
     "node": ">=24",
