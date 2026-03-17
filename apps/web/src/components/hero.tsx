@@ -44,6 +44,10 @@ export async function Hero() {
               <span className="btn-ink-label-hover">{label}</span>
             </Link>
           ))}
+          <a className="btn-ink" download href="/cv.pdf">
+            <span className="btn-ink-label">{t('downloadCV')}</span>
+            <span className="btn-ink-label-hover">{t('downloadCV')}</span>
+          </a>
         </div>
       </Container>
     </section>

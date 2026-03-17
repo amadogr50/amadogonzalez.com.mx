@@ -38,6 +38,16 @@ export async function Contact() {
                 </span>
               </a>
               </li>
+            <li>
+              <a
+                className="btn-ink ring-1 ring-cream/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+                download
+                href="/cv.pdf"
+              >
+                <span className="btn-ink-label">{t('downloadCV')}</span>
+                <span className="btn-ink-label-hover">{t('downloadCV')}</span>
+              </a>
+            </li>
           </ul>
         </nav>
       </div>

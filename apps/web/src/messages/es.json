@@ -24,7 +24,8 @@
     "credential2": "20+ apps móviles publicadas",
     "credential3": "10+ plataformas web",
     "viewWork": "Ver Trabajo Selecto",
-    "contactCta": "Contacto"
+    "contactCta": "Contacto",
+    "downloadCV": "Descargar CV"
   },
   "about": {
     "sectionLabel": "Acerca de",
@@ -152,7 +153,8 @@
     "heading": "Construyamos algo significativo",
     "description1": "Me interesan particularmente las conversaciones reflexivas sobre construir tecnología significativa.",
     "description2": "Si estás explorando ideas ambiciosas en IA, producto o el futuro del trabajo, me encantaría conectar e intercambiar perspectivas. A veces las cosas más interesantes comienzan con una simple conversación.",
-    "email": "Email"
+    "email": "Email",
+    "downloadCV": "Descargar CV"
   },
   "footer": {
     "copyright": "© 2026 Amado González",

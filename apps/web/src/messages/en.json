@@ -24,7 +24,8 @@
     "credential2": "20+ shipped mobile apps",
     "credential3": "10+ web platforms",
     "viewWork": "View Selected Work",
-    "contactCta": "Contact"
+    "contactCta": "Contact",
+    "downloadCV": "Download CV"
   },
   "about": {
     "sectionLabel": "About",
@@ -152,7 +153,8 @@
     "heading": "Let's build something meaningful",
     "description1": "I'm particularly interested in thoughtful conversations about building meaningful technology.",
     "description2": "If you're exploring ambitious ideas in AI, product, or the future of work, I'd enjoy connecting and exchanging perspectives. Sometimes the most interesting things start with a simple conversation.",
-    "email": "Email"
+    "email": "Email",
+    "downloadCV": "Download CV"
   },
   "footer": {
     "copyright": "© 2026 Amado González",
