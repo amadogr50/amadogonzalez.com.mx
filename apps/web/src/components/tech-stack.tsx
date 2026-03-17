@@ -176,7 +176,7 @@ export async function TechStack() {
                   <div className="flex flex-wrap gap-1.5">
                     {group.items.map((item) => (
                       <span
-                        className="whitespace-nowrap rounded-full bg-sage px-2.5 py-1 text-[10px] uppercase tracking-wider text-ink"
+                        className="whitespace-nowrap rounded-full border border-sage px-2.5 py-1 text-[10px] uppercase tracking-wider text-ink"
                         key={item}
                       >
                         {item}
