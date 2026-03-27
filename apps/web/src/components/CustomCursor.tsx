@@ -44,12 +44,18 @@ export function CustomCursor() {
 
     const updateCursorStyle = () => {
       if (!cursorRef.current) return
-      const circle = cursorRef.current.querySelector('div') as HTMLElement
+      const circle = cursorRef.current.querySelector('[data-cursor-border]') as HTMLElement
+      const inner = cursorRef.current.querySelector('[data-cursor-inner]') as HTMLElement
+
       if (circle) {
         circle.style.width = isHoveringRef.current ? '16px' : '28px'
         circle.style.height = isHoveringRef.current ? '16px' : '28px'
         circle.style.borderWidth = isHoveringRef.current ? '3px' : '2px'
         circle.style.borderColor = isHoveringRef.current ? '#1A1A1A' : '#A3B5A6'
+      }
+
+      if (inner) {
+        inner.style.opacity = isHoveringRef.current ? '1' : '0'
       }
     }
 
@@ -99,6 +105,7 @@ export function CustomCursor() {
       }}
     >
       <div
+        data-cursor-border
         style={{
           borderColor: '#A3B5A6',
           width: '28px',
@@ -107,8 +114,21 @@ export function CustomCursor() {
           borderStyle: 'solid',
           borderRadius: '50%',
           transition: 'width 0.15s, height 0.15s, border-width 0.15s, border-color 0.15s',
+          position: 'relative',
         }}
-      />
+      >
+        <div
+          data-cursor-inner
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: '#1A1A1A',
+            borderRadius: '50%',
+            opacity: 0,
+            transition: 'opacity 0.15s',
+          }}
+        />
+      </div>
     </div>
   )
 }
