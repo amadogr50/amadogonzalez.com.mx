@@ -131,7 +131,7 @@ export async function TechStack() {
   return (
     <section id="stack">
       <Container className="py-16">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-warm-gray-light">
+      <p className="text-xs font-extrabold uppercase tracking-widest text-warm-gray-light">
         {t('sectionLabel')}
       </p>
       <h2 className="mt-2 font-serif text-[28px] font-medium leading-tight">
@@ -155,7 +155,7 @@ export async function TechStack() {
             <div className="flex items-start gap-3">
               <div>
                 {t.has(`${category.id}.label`) && (
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-sage">
+                  <p className="mb-1 text-[11px] font-black uppercase tracking-widest text-sage">
                     {t(`${category.id}.label`)}
                   </p>
                 )}

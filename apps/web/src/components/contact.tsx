@@ -6,7 +6,7 @@ export async function Contact() {
   return (
     <section className="w-full bg-ink px-6 py-28 text-center md:px-12 md:py-36" id="contact">
       <div className="mx-auto max-w-[600px]">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-sage">
+        <p className="text-xs font-extrabold uppercase tracking-widest text-sage">
           {t('sectionLabel')}
         </p>
 

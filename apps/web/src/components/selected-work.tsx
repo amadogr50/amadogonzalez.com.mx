@@ -123,7 +123,7 @@ export function SelectedWork() {
     >
       <Container className="flex w-full flex-col gap-14">
         {/* Section label */}
-        <p className="text-warm-gray-light text-[11px] font-semibold tracking-[0.14em] uppercase">
+        <p className="text-warm-gray-light text-xs font-extrabold tracking-widest uppercase">
           {t('sectionLabel')}
         </p>
 
@@ -145,7 +145,7 @@ export function SelectedWork() {
               variants={containerVariants}
             >
               <motion.div transition={itemTransition} variants={itemVariants}>
-                <p className="text-sage font-serif text-sm tracking-[0.08em]">
+                <p className="text-sage font-serif font-extrabold text-3xl tracking-wider">
                   {project.number}
                 </p>
               </motion.div>

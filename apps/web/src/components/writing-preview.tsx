@@ -7,7 +7,7 @@ export async function WritingPreview() {
   return (
     <section id='writing'>
       <Container className="py-16">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-warm-gray-light">
+      <p className="text-xs font-extrabold uppercase tracking-widest text-warm-gray-light">
         {t('sectionLabel')}
       </p>
       <h2 className="mt-2 font-serif text-[28px] font-medium leading-tight">
