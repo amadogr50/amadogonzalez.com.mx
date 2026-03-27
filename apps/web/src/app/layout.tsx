@@ -3,7 +3,6 @@ import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 import Script from 'next/script'
 import React from 'react'
 
-import { CustomCursor } from '@/components/CustomCursor'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -28,7 +27,6 @@ export default function RootLayout({
   return (
     <html className={`${cormorant.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <body>
-        <CustomCursor />
         {env.NEXT_PUBLIC_UMAMI_URL && env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
           <Script
             data-website-id={env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
