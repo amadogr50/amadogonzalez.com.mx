@@ -153,7 +153,7 @@ export function SelectedWork() {
               </motion.div>
 
               <motion.div transition={itemTransition} variants={itemVariants}>
-                <p className="text-stone max-w-[60ch] text-[15px] leading-relaxed">
+                <p className="drop-cap text-stone max-w-[60ch] text-[15px] leading-relaxed">
                   {t(`${project.id}.description`)}
                 </p>
               </motion.div>

@@ -21,7 +21,7 @@ export async function Hero() {
         <p className="mt-3 font-serif text-[21px] italic text-stone">
           {t('subtitle')}
         </p>
-        <p className="mx-auto mt-5 max-w-[520px] text-sm leading-relaxed text-warm-gray-light">
+        <p className="drop-cap mx-auto mt-5 max-w-[520px] text-sm leading-relaxed text-warm-gray-light">
           {t('description')}
         </p>
         <p className="mt-5 text-xs tracking-wide text-ink/70">

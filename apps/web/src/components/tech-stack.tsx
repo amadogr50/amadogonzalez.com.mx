@@ -140,7 +140,7 @@ export async function TechStack() {
       <div className="mt-8 h-px w-10 bg-sage" />
 
       <div className="mt-8 max-w-[65ch] space-y-4 text-base leading-[1.85] text-stone">
-        <p>{t('intro1')}</p>
+        <p className="drop-cap">{t('intro1')}</p>
         <p>{t('intro2')}</p>
       </div>
 

@@ -168,7 +168,7 @@ function ExperienceItem({
         <p className="mt-0.5 text-[12px] tracking-wide text-warm-gray-light">
           {experience.startDate} – {experience.endDate}
         </p>
-        <p className="mt-3 text-sm leading-relaxed text-stone">
+        <p className="drop-cap mt-3 text-sm leading-relaxed text-stone">
           {description}
         </p>
       </div>

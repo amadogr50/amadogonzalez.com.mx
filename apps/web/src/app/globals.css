@@ -74,4 +74,15 @@
   .btn-ink:hover .btn-ink-label-hover {
     clip-path: inset(0% 0 0 0);
   }
+
+  .drop-cap::first-letter {
+    float: left;
+    font-family: var(--font-serif);
+    font-size: 3.6em;
+    font-weight: 300;
+    line-height: 0.82;
+    margin-right: 0.08em;
+    margin-top: 0.04em;
+    color: var(--color-ink);
+  }
 }
