@@ -10,8 +10,10 @@ export function CustomCursor() {
   const frameRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
-    // Hide native cursor
+    // Hide native cursor globally
     document.documentElement.style.cursor = 'none'
+    // Also ensure body and all elements hide the cursor
+    document.body.style.cursor = 'none'
 
     const handleMouseMove = (e: MouseEvent) => {
       targetPosRef.current.x = e.clientX
@@ -44,9 +46,10 @@ export function CustomCursor() {
       if (!cursorRef.current) return
       const circle = cursorRef.current.querySelector('div') as HTMLElement
       if (circle) {
-        circle.style.width = isHoveringRef.current ? '14px' : '20px'
-        circle.style.height = isHoveringRef.current ? '14px' : '20px'
+        circle.style.width = isHoveringRef.current ? '16px' : '28px'
+        circle.style.height = isHoveringRef.current ? '16px' : '28px'
         circle.style.borderWidth = isHoveringRef.current ? '3px' : '2px'
+        circle.style.borderColor = isHoveringRef.current ? '#1A1A1A' : '#A3B5A6'
       }
     }
 
@@ -98,12 +101,12 @@ export function CustomCursor() {
       <div
         style={{
           borderColor: '#A3B5A6',
-          width: '20px',
-          height: '20px',
+          width: '28px',
+          height: '28px',
           borderWidth: '2px',
           borderStyle: 'solid',
           borderRadius: '50%',
-          transition: 'width 0.15s, height 0.15s, border-width 0.15s',
+          transition: 'width 0.15s, height 0.15s, border-width 0.15s, border-color 0.15s',
         }}
       />
     </div>

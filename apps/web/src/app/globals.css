@@ -17,8 +17,10 @@
 }
 
 @layer base {
-  html {
-    cursor: none;
+  html,
+  body,
+  * {
+    cursor: none !important;
   }
 
   body {
