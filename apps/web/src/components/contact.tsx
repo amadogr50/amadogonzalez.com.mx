@@ -1,4 +1,6 @@
 import { getTranslations } from 'next-intl/server'
+import { CVDownloadButton } from './cv-download-button'
+import { EmailLinkButton } from './email-link-button'
 
 export async function Contact() {
   const t = await getTranslations('contact')
@@ -26,27 +28,17 @@ export async function Contact() {
         <nav aria-label="Contact links">
           <ul className="mt-12 flex flex-wrap justify-center gap-4">
             <li>
-              <a
+              <EmailLinkButton
                 className="btn-ink ring-1 ring-cream/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-                href="mailto:hola@amadogonzalez.com.mx"
-              >
-                <span className="btn-ink-label inline-flex items-center gap-2">
-                  {t('email')}
-                </span>
-                <span className="btn-ink-label-hover inline-flex items-center gap-2">
-                  {t('email')}
-                </span>
-              </a>
+                email="hola@amadogonzalez.com.mx"
+                label={t('email')}
+              />
               </li>
             <li>
-              <a
+              <CVDownloadButton
                 className="btn-ink ring-1 ring-cream/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-                download
-                href="/cv.pdf"
-              >
-                <span className="btn-ink-label">{t('downloadCV')}</span>
-                <span className="btn-ink-label-hover">{t('downloadCV')}</span>
-              </a>
+                label={t('downloadCV')}
+              />
             </li>
           </ul>
         </nav>

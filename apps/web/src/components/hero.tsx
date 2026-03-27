@@ -1,6 +1,7 @@
 import { Container } from '@/components/container'
 import { Link } from '@/i18n/routing'
 import { getTranslations } from 'next-intl/server'
+import { CVDownloadButton } from './cv-download-button'
 
 export async function Hero() {
   const t = await getTranslations('hero')
@@ -44,10 +45,7 @@ export async function Hero() {
               <span className="btn-ink-label-hover">{label}</span>
             </Link>
           ))}
-          <a className="btn-ink" download href="/cv.pdf">
-            <span className="btn-ink-label">{t('downloadCV')}</span>
-            <span className="btn-ink-label-hover">{t('downloadCV')}</span>
-          </a>
+          <CVDownloadButton className="btn-ink" label={t('downloadCV')} />
         </div>
       </Container>
     </section>
