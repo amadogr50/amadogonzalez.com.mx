@@ -85,4 +85,31 @@
     margin-top: 0.04em;
     color: var(--color-ink);
   }
+
+  @keyframes shimmer-sweep {
+    0% { left: -60%; }
+    100% { left: 160%; }
+  }
+
+  .skill-badge {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-badge::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -80%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    pointer-events: none;
+    transform: skewX(-25deg);
+  }
+
+  .group:hover .skill-badge::after {
+    animation: shimmer-sweep 0.9s ease-in-out;
+    animation-delay: calc(var(--badge-index, 0) * 60ms);
+  }
 }

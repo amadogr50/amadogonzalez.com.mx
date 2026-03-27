@@ -113,15 +113,7 @@ function ExperienceItem({
   onExpand: (index: number) => void
   role: string
 }) {
-  const [contentHeight, setContentHeight] = useState(0)
-  const expandedRef = useRef<HTMLDivElement>(null)
   const itemRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (expandedRef.current) {
-      setContentHeight(expandedRef.current.scrollHeight)
-    }
-  }, [isExpanded])
 
   useEffect(() => {
     if (!isMobile || !itemRef.current) return
@@ -173,34 +165,16 @@ function ExperienceItem({
         </p>
       </div>
 
-      {/* Expanded content — divider + skills */}
-      <div
-        className="overflow-hidden transition-[max-height] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-        ref={expandedRef}
-        style={{
-          maxHeight: isExpanded ? `${contentHeight}px` : '0px',
-        }}
-      >
-        {/* Divider — animates width left-to-right */}
-        <div
-          className="mt-4 h-px bg-sage transition-[width] duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-          style={{
-            transitionDelay: isExpanded ? '150ms' : '0ms',
-            width: isExpanded ? '100%' : '0%',
-          }}
-        />
+      {/* Divider + skills — always visible */}
+      <div>
+        <div className="mt-4 h-px w-full bg-sage" />
 
-        {/* Skills */}
         <div className="mt-4 flex flex-wrap gap-1.5 pb-1">
           {experience.skills.map((skill, i) => (
             <span
-              className="whitespace-nowrap rounded-full bg-sage px-2.5 py-1 text-[10px] uppercase tracking-wider text-ink transition-all duration-300"
+              className="skill-badge whitespace-nowrap rounded-full bg-sage px-2.5 py-1 text-[10px] uppercase tracking-wider text-ink"
               key={skill}
-              style={{
-                opacity: isExpanded ? 1 : 0,
-                transform: isExpanded ? 'translateY(0)' : 'translateY(8px)',
-                transitionDelay: isExpanded ? `${200 + i * 50}ms` : '0ms',
-              }}
+              style={{ '--badge-index': i } as React.CSSProperties}
             >
               {skill}
             </span>
