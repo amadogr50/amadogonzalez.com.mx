@@ -23,6 +23,16 @@ const projects: Project[] = [
   {
     id: 'palacio',
     image: '/images/projects/palacio.jpg',
+    links: [
+      {
+        href: 'https://play.google.com/store/apps/details?id=com.eph.superapp',
+        label: 'Google Play',
+      },
+      {
+        href: 'https://apps.apple.com/co/app/el-palacio-de-hierro/id6449685817',
+        label: 'App Store',
+      },
+    ],
     number: '01',
     tags: ['React Native', 'Expo', 'CI/CD', 'E-commerce'],
   },
