@@ -15,31 +15,32 @@ export function CustomCursor() {
     // Also ensure body and all elements hide the cursor
     document.body.style.cursor = 'none'
 
+    const isClickableElement = (element: HTMLElement): boolean => {
+      if (!element) return false
+      return (
+        element.tagName === 'A' ||
+        element.tagName === 'BUTTON' ||
+        element.tagName === 'INPUT' ||
+        element.role === 'button' ||
+        element.role === 'link' ||
+        element.classList.contains('cursor-pointer') ||
+        getComputedStyle(element).cursor === 'pointer'
+      )
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       targetPosRef.current.x = e.clientX
       targetPosRef.current.y = e.clientY
-    }
 
-    const handleMouseEnter = (e: Event) => {
-      const target = e.target as HTMLElement
-      const isClickable =
-        target.tagName === 'A' ||
-        target.tagName === 'BUTTON' ||
-        target.tagName === 'INPUT' ||
-        target.role === 'button' ||
-        target.role === 'link' ||
-        target.classList.contains('cursor-pointer') ||
-        getComputedStyle(target).cursor === 'pointer'
+      // Check element under cursor
+      const elementUnder = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement
+      const wasHovering = isHoveringRef.current
+      const isNowHovering = elementUnder ? isClickableElement(elementUnder) : false
 
-      if (isClickable) {
-        isHoveringRef.current = true
+      if (isNowHovering !== wasHovering) {
+        isHoveringRef.current = isNowHovering
         updateCursorStyle()
       }
-    }
-
-    const handleMouseLeave = () => {
-      isHoveringRef.current = false
-      updateCursorStyle()
     }
 
     const updateCursorStyle = () => {
@@ -80,15 +81,11 @@ export function CustomCursor() {
 
     frameRef.current = requestAnimationFrame(animate)
 
-    // Event listeners with delegation
+    // Event listeners
     document.addEventListener('mousemove', handleMouseMove)
-    document.addEventListener('mouseenter', handleMouseEnter, true)
-    document.addEventListener('mouseleave', handleMouseLeave, true)
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
-      document.removeEventListener('mouseenter', handleMouseEnter, true)
-      document.removeEventListener('mouseleave', handleMouseLeave, true)
       if (frameRef.current) {
         cancelAnimationFrame(frameRef.current)
       }
