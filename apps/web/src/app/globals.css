@@ -17,6 +17,10 @@
 }
 
 @layer base {
+  html {
+    cursor: none;
+  }
+
   body {
     @apply bg-cream text-ink font-sans text-[15px] leading-relaxed antialiased;
   }
