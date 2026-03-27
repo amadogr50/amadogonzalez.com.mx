@@ -1,20 +1,21 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 export function CustomCursor() {
-  const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 })
-  const [isHovering, setIsHovering] = useState<boolean>(false)
   const cursorRef = useRef<HTMLDivElement>(null)
-  const frameRef = useRef<number | undefined>(undefined)
+  const posRef = useRef({ x: 0, y: 0 })
   const targetPosRef = useRef({ x: 0, y: 0 })
+  const isHoveringRef = useRef(false)
+  const frameRef = useRef<number | undefined>(undefined)
 
   useEffect(() => {
     // Hide native cursor
     document.documentElement.style.cursor = 'none'
 
     const handleMouseMove = (e: MouseEvent) => {
-      targetPosRef.current = { x: e.clientX, y: e.clientY }
+      targetPosRef.current.x = e.clientX
+      targetPosRef.current.y = e.clientY
     }
 
     const handleMouseEnter = (e: Event) => {
@@ -29,29 +30,41 @@ export function CustomCursor() {
         getComputedStyle(target).cursor === 'pointer'
 
       if (isClickable) {
-        setIsHovering(true)
+        isHoveringRef.current = true
+        updateCursorStyle()
       }
     }
 
     const handleMouseLeave = () => {
-      setIsHovering(false)
+      isHoveringRef.current = false
+      updateCursorStyle()
+    }
+
+    const updateCursorStyle = () => {
+      if (!cursorRef.current) return
+      const circle = cursorRef.current.querySelector('div') as HTMLElement
+      if (circle) {
+        circle.style.width = isHoveringRef.current ? '14px' : '20px'
+        circle.style.height = isHoveringRef.current ? '14px' : '20px'
+        circle.style.borderWidth = isHoveringRef.current ? '3px' : '2px'
+      }
     }
 
     // Smooth animation loop
     const animate = () => {
-      setPosition((prev) => {
-        const dx = targetPosRef.current.x - prev.x
-        const dy = targetPosRef.current.y - prev.y
-        const distance = Math.sqrt(dx * dx + dy * dy)
+      const dx = targetPosRef.current.x - posRef.current.x
+      const dy = targetPosRef.current.y - posRef.current.y
 
-        // Easing: interpolate based on distance for smooth following
-        const easing = Math.min(distance * 0.15, 1)
+      // Smooth easing - use a consistent lerp factor
+      const lerpFactor = 0.15
 
-        return {
-          x: prev.x + dx * easing,
-          y: prev.y + dy * easing,
-        }
-      })
+      posRef.current.x += dx * lerpFactor
+      posRef.current.y += dy * lerpFactor
+
+      if (cursorRef.current) {
+        cursorRef.current.style.left = `${posRef.current.x}px`
+        cursorRef.current.style.top = `${posRef.current.y}px`
+      }
 
       frameRef.current = requestAnimationFrame(animate)
     }
@@ -77,20 +90,20 @@ export function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className={`pointer-events-none fixed z-[9999] transition-all duration-100`}
+      className="pointer-events-none fixed z-[9999]"
       style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
         transform: 'translate(-50%, -50%)',
       }}
     >
       <div
-        className={`border-2 rounded-full transition-all duration-100`}
         style={{
           borderColor: '#A3B5A6',
-          width: isHovering ? '14px' : '20px',
-          height: isHovering ? '14px' : '20px',
-          borderWidth: isHovering ? '3px' : '2px',
+          width: '20px',
+          height: '20px',
+          borderWidth: '2px',
+          borderStyle: 'solid',
+          borderRadius: '50%',
+          transition: 'width 0.15s, height 0.15s, border-width 0.15s',
         }}
       />
     </div>
