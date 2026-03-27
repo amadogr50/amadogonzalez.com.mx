@@ -22,16 +22,19 @@ interface Project {
 const projects: Project[] = [
   {
     id: 'palacio',
+    image: '/images/projects/palacio.jpg',
     number: '01',
     tags: ['React Native', 'Expo', 'CI/CD', 'E-commerce'],
   },
   {
     id: 'blackbrulee',
+    image: '/images/projects/blackbrulee.jpg',
     number: '02',
     tags: ['ERPNext', 'Docker', 'Traefik', 'n8n', 'Self-Hosted'],
   },
   {
     id: 'lithios',
+    image: '/images/projects/lithios.jpg',
     number: '03',
     tags: ['React Native', 'Next.js', 'TypeScript', 'Full-Stack'],
   },
@@ -103,14 +106,14 @@ export function SelectedWork() {
   return (
     <section
       aria-label={t('sectionLabel')}
-      className="relative border-t border-hairline py-20"
+      className="border-hairline relative border-t py-20"
       id="work"
       onTouchEnd={onTouchEnd}
       onTouchStart={onTouchStart}
     >
       <Container className="flex w-full flex-col gap-14">
         {/* Section label */}
-        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-warm-gray-light">
+        <p className="text-warm-gray-light text-[11px] font-semibold tracking-[0.14em] uppercase">
           {t('sectionLabel')}
         </p>
 
@@ -132,25 +135,25 @@ export function SelectedWork() {
               variants={containerVariants}
             >
               <motion.div transition={itemTransition} variants={itemVariants}>
-                <p className="font-serif text-sm tracking-[0.08em] text-sage">
+                <p className="text-sage font-serif text-sm tracking-[0.08em]">
                   {project.number}
                 </p>
               </motion.div>
 
               <motion.div transition={itemTransition} variants={itemVariants}>
-                <h2 className="font-serif text-[1.9rem] font-light leading-[1.18] md:text-[2.4rem]">
+                <h2 className="font-serif text-[1.9rem] leading-[1.18] font-light md:text-[2.4rem]">
                   {t(`${project.id}.title`)}
                 </h2>
               </motion.div>
 
               <motion.div transition={itemTransition} variants={itemVariants}>
-                <p className="font-serif text-[15px] italic text-stone">
+                <p className="text-stone font-serif text-[15px] italic">
                   {t(`${project.id}.meta`)}
                 </p>
               </motion.div>
 
               <motion.div transition={itemTransition} variants={itemVariants}>
-                <p className="max-w-[60ch] text-[15px] leading-relaxed text-stone">
+                <p className="text-stone max-w-[60ch] text-[15px] leading-relaxed">
                   {t(`${project.id}.description`)}
                 </p>
               </motion.div>
@@ -159,7 +162,7 @@ export function SelectedWork() {
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
-                      className="whitespace-nowrap rounded-full bg-sage px-2.5 py-1 text-[10px] uppercase tracking-wider text-ink"
+                      className="bg-sage text-ink rounded-full px-2.5 py-1 text-[10px] tracking-wider whitespace-nowrap uppercase"
                       key={tag}
                     >
                       {tag}
@@ -173,7 +176,7 @@ export function SelectedWork() {
                   <div className="flex gap-6">
                     {project.links.map((link) => (
                       <a
-                        className="border-b border-sage pb-0.5 text-xs uppercase tracking-[0.12em] text-ink transition-colors hover:text-sage focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage"
+                        className="border-sage text-ink hover:text-sage focus-visible:ring-sage border-b pb-0.5 text-xs tracking-[0.12em] uppercase transition-colors focus-visible:ring-2 focus-visible:outline-none"
                         href={link.href}
                         key={link.label}
                         rel="noopener noreferrer"
@@ -194,17 +197,20 @@ export function SelectedWork() {
               variants={imageVariants}
             >
               {project.image ? (
-                <img
-                  alt={t(`${project.id}.title`)}
-                  className="h-auto w-full rounded-lg object-cover"
-                  src={project.image}
-                />
+                <div className="aspect-[4/3] w-full overflow-hidden rounded-lg">
+                  <img
+                    alt={t(`${project.id}.title`)}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    src={project.image}
+                  />
+                </div>
               ) : (
                 <div
                   aria-hidden="true"
-                  className="flex aspect-[4/3] w-full items-center justify-center rounded-lg border border-hairline bg-cream-mid"
+                  className="border-hairline bg-cream-mid flex aspect-[4/3] w-full items-center justify-center rounded-lg border"
                 >
-                  <span className="font-serif text-[7rem] font-light leading-none text-sage/20">
+                  <span className="text-sage/20 font-serif text-[7rem] leading-none font-light">
                     {project.number}
                   </span>
                 </div>
@@ -214,23 +220,29 @@ export function SelectedWork() {
         </AnimatePresence>
 
         {/* Navigation */}
-        <div className="flex items-center justify-between border-t border-hairline pt-8">
+        <div className="border-hairline flex items-center justify-between border-t pt-8">
           <button
             aria-label={t('previous')}
-            className="flex items-center gap-2 text-xs uppercase tracking-[0.12em] text-stone transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2"
+            className="text-stone hover:text-ink focus-visible:ring-sage flex items-center gap-2 text-xs tracking-[0.12em] uppercase transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             onClick={prev}
           >
             <ArrowLeft size={13} strokeWidth={1.5} />
             {t('previous')}
           </button>
 
-          <div aria-label="Projects" className="flex items-center gap-2" role="tablist">
+          <div
+            aria-label="Projects"
+            className="flex items-center gap-2"
+            role="tablist"
+          >
             {projects.map((p, i) => (
               <button
                 aria-label={`Project ${i + 1}: ${t(`${p.id}.title`)}`}
                 aria-selected={i === index}
-                className={`h-[3px] rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage ${
-                  i === index ? 'w-7 bg-sage' : 'w-2.5 bg-hairline hover:bg-stone/40'
+                className={`focus-visible:ring-sage h-[3px] rounded-full transition-all duration-300 focus-visible:ring-2 focus-visible:outline-none ${
+                  i === index
+                    ? 'bg-sage w-7'
+                    : 'bg-hairline hover:bg-stone/40 w-2.5'
                 }`}
                 key={p.id}
                 onClick={() => setIndex(i)}
@@ -241,7 +253,7 @@ export function SelectedWork() {
 
           <button
             aria-label={t('next')}
-            className="flex items-center gap-2 text-xs uppercase tracking-[0.12em] text-stone transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2"
+            className="text-stone hover:text-ink focus-visible:ring-sage flex items-center gap-2 text-xs tracking-[0.12em] uppercase transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
             onClick={next}
           >
             {t('next')}
